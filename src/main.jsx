@@ -284,7 +284,7 @@ function App() {
           <div className="contactButtons">
             <a className="goldBtn" href="mailto:ridhanparvendhan@gmail.com">Email Me</a>
             <a className="plainBtn" href="https://github.com/RidhanPar/" target="_blank">GitHub</a>
-            <a className="plainBtn" href="https://ridhanpar.github.io/RidhanParvendhanPortfolio.github.io/" target="_blank">Portfolio</a>
+            <a className="plainBtn" href="https://ridhan-portfolio.vercel.app/" target="_blank">Portfolio</a>
             <a className="plainBtn" href="https://www.linkedin.com/in/ridhanparvendhan" target="_blank">LinkedIn</a>
           </div>
         </div>
