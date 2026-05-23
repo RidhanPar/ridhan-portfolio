@@ -9,7 +9,9 @@ const projects = [
     description:
       'Enterprise-style AI operations platform for SLA monitoring, ticket routing, workflow automation, AI summaries, and operational dashboards.',
     tech: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Docker', 'OpenAI API'],
-    links: []
+    links: [
+      ['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']
+    ]
   },
   {
     title: 'Customer Support Intelligence Platform',
