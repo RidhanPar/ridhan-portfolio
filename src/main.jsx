@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './styles.css';
 
@@ -103,6 +103,81 @@ const projects = [
   }
 ];
 
+function AutomationDemo() {
+  const steps = [
+    {
+      title: 'Request Received',
+      label: 'Step 01',
+      text: 'A support ticket, taxi request, or shift swap request enters the workflow.',
+      metric: '100%',
+      metricLabel: 'Requests Captured'
+    },
+    {
+      title: 'Rules Checked',
+      label: 'Step 02',
+      text: 'The system validates eligibility, priority, SLA risk, schedule conflicts, and approval conditions.',
+      metric: '70%',
+      metricLabel: 'Manual Work Reduced'
+    },
+    {
+      title: 'AI Insight Generated',
+      label: 'Step 03',
+      text: 'AI summarizes the issue, highlights risk, and recommends the next best action for the team.',
+      metric: 'Fast',
+      metricLabel: 'Decision Support'
+    },
+    {
+      title: 'Dashboard Updated',
+      label: 'Step 04',
+      text: 'Leadership gets visibility through live KPIs, approval status, backlog trends, and workload insights.',
+      metric: 'Live',
+      metricLabel: 'Operational Visibility'
+    }
+  ];
+
+  const [activeStep, setActiveStep] = useState(0);
+  const step = steps[activeStep];
+
+  return (
+    <section className="automationDemo">
+      <div className="sectionHeader">
+        <span>Interactive Demo</span>
+        <h2>How I think about automation workflows.</h2>
+      </div>
+
+      <div className="demoGrid">
+        <div className="demoPanel">
+          <div className="demoTop">
+            <p>{step.label}</p>
+            <strong>{step.metric}</strong>
+          </div>
+
+          <h3>{step.title}</h3>
+          <p>{step.text}</p>
+
+          <div className="demoMetric">
+            <span>{step.metric}</span>
+            <p>{step.metricLabel}</p>
+          </div>
+        </div>
+
+        <div className="workflowSteps">
+          {steps.map((item, index) => (
+            <button
+              key={item.title}
+              className={activeStep === index ? 'workflowStep active' : 'workflowStep'}
+              onClick={() => setActiveStep(index)}
+            >
+              <span>{item.label}</span>
+              <strong>{item.title}</strong>
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function App() {
   return (
     <div className="site">
@@ -168,6 +243,8 @@ function App() {
           <p>Built dashboards and analysis projects using SQL, Python, Tableau, Looker Studio, Excel, and Power BI.</p>
         </div>
       </section>
+
+      <AutomationDemo />
 
       <section className="section" id="experience">
         <div className="sectionHeader">
