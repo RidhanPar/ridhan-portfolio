@@ -884,3 +884,96 @@ body {
     transform: translateY(-4px);
   }
 }
+/* FINAL POLISH FOR RECRUITER-READY PORTFOLIO */
+
+.hero h1 {
+  max-width: 850px;
+}
+
+.hero p {
+  max-width: 760px;
+}
+
+.pill::before {
+  content: "●";
+  color: #0ea5e9;
+  font-size: 10px;
+}
+
+.goldBtn {
+  letter-spacing: 0.01em;
+}
+
+.goldBtn:hover {
+  scale: 1.02;
+}
+
+.projectCard {
+  min-height: 360px;
+}
+
+.projectCard h3 {
+  min-height: 64px;
+}
+
+.projectLinks a {
+  min-width: 120px;
+}
+
+.sectionHeader h2 {
+  max-width: 900px;
+}
+
+.photoFrame {
+  width: 315px;
+  height: 375px;
+  border-radius: 32px;
+}
+
+.profilePhoto {
+  object-position: center top;
+}
+
+.stats div {
+  min-height: 220px;
+}
+
+.timelineItem {
+  border-left: 4px solid rgba(14, 165, 233, 0.35);
+}
+
+.projectCard:nth-child(1),
+.projectCard:nth-child(2),
+.projectCard:nth-child(3) {
+  border-color: rgba(14, 165, 233, 0.28);
+}
+
+.projectCard:nth-child(1)::after,
+.projectCard:nth-child(2)::after,
+.projectCard:nth-child(3)::after {
+  content: "Featured";
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+@media(max-width: 760px) {
+  .projectCard h3 {
+    min-height: auto;
+  }
+
+  .projectCard {
+    min-height: auto;
+  }
+
+  .stats div {
+    min-height: auto;
+  }
+}

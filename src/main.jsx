@@ -105,45 +105,44 @@ const projects = [
 
 function AutomationDemo() {
   const steps = [
-    {
-      title: 'Request Received',
-      label: 'Step 01',
-      text: 'A support ticket, taxi request, or shift swap request enters the workflow.',
-      metric: '100%',
-      metricLabel: 'Requests Captured'
-    },
-    {
-      title: 'Rules Checked',
-      label: 'Step 02',
-      text: 'The system validates eligibility, priority, SLA risk, schedule conflicts, and approval conditions.',
-      metric: '70%',
-      metricLabel: 'Manual Work Reduced'
-    },
-    {
-      title: 'AI Insight Generated',
-      label: 'Step 03',
-      text: 'AI summarizes the issue, highlights risk, and recommends the next best action for the team.',
-      metric: 'Fast',
-      metricLabel: 'Decision Support'
-    },
-    {
-      title: 'Dashboard Updated',
-      label: 'Step 04',
-      text: 'Leadership gets visibility through live KPIs, approval status, backlog trends, and workload insights.',
-      metric: 'Live',
-      metricLabel: 'Operational Visibility'
-    }
-  ];
-
+  {
+    title: 'Data Collected',
+    label: 'Step 01',
+    text: 'Operational data from tickets, approvals, schedules, SLA records, and customer support activity is collected into a structured view.',
+    metric: 'Clean',
+    metricLabel: 'Data Foundation'
+  },
+  {
+    title: 'KPIs Analyzed',
+    label: 'Step 02',
+    text: 'Key metrics such as SLA risk, backlog, resolution time, request volume, and team performance are analyzed for trends and issues.',
+    metric: 'BI',
+    metricLabel: 'Decision Visibility'
+  },
+  {
+    title: 'Risk Predicted',
+    label: 'Step 03',
+    text: 'Machine learning or rule-based logic identifies potential SLA breaches, workflow delays, and operational bottlenecks before they become bigger problems.',
+    metric: 'ML',
+    metricLabel: 'Early Warning'
+  },
+  {
+    title: 'Workflow Automated',
+    label: 'Step 04',
+    text: 'Automation helps route requests, validate approvals, trigger alerts, update dashboards, and reduce repetitive manual work.',
+    metric: 'Auto',
+    metricLabel: 'Process Improvement'
+  }
+];
   const [activeStep, setActiveStep] = useState(0);
   const step = steps[activeStep];
 
   return (
     <section className="automationDemo">
       <div className="sectionHeader">
-        <span>Interactive Demo</span>
-        <h2>How I think about automation workflows.</h2>
-      </div>
+  <span>Data + BI + Automation Demo</span>
+  <h2>How I use analytics and automation to improve operations.</h2>
+</div>
 
       <div className="demoGrid">
         <div className="demoPanel">
@@ -194,16 +193,18 @@ function App() {
       <section className="hero">
   <div className="heroText">
     <div className="pill">
-      Data Analyst • AI Automation • Data Science
+      Data Analyst • BI Specialist • Data Science • AI Automation
     </div>
 
     <h1>
-      Hi, I’m Ridhan. <span>I turn data into smarter workflows.</span>
+      Hi, I’m Ridhan. <span>I turn data into business decisions.</span>
     </h1>
 
     <p>
       Computer Science graduate based in Riga, focused on data analytics,
-      AI automation, dashboards, machine learning, and workflow improvement.
+      business intelligence, machine learning, customer support operations,
+      and AI-powered workflow automation. I build dashboards, prediction systems,
+      and automation tools that solve real business problems.
     </p>
 
     <div className="buttons">
@@ -230,19 +231,30 @@ function App() {
   </div>
 </section>
       <section className="stats">
-        <div>
-          <h3>Operations Experience</h3>
-          <p>Enterprise support background with SLA awareness, reporting, ticket analysis, and workflow improvement.</p>
-        </div>
-        <div>
-          <h3>Automation Builder</h3>
-          <p>Created self-initiated tools for approval workflows, shift swaps, taxi eligibility, and tracking visibility.</p>
-        </div>
-        <div>
-          <h3>Data Storyteller</h3>
-          <p>Built dashboards and analysis projects using SQL, Python, Tableau, Looker Studio, Excel, and Power BI.</p>
-        </div>
-      </section>
+  <div>
+    <h3>Data Analytics</h3>
+    <p>
+      Strong foundation in SQL, Python, Excel, and data cleaning to analyze
+      trends, identify patterns, and support business decisions.
+    </p>
+  </div>
+
+  <div>
+    <h3>BI & Dashboards</h3>
+    <p>
+      Built dashboards using Power BI, Tableau, Looker Studio, and Excel to
+      visualize KPIs, customer trends, performance metrics, and operations data.
+    </p>
+  </div>
+
+  <div>
+    <h3>Support Operations + Automation</h3>
+    <p>
+      Customer support operations experience combined with self-initiated
+      workflow automation projects for approvals, scheduling, and process improvement.
+    </p>
+  </div>
+</section>
 
       <AutomationDemo />
 
@@ -347,10 +359,30 @@ function App() {
         </div>
 
         <div className="skillGrid">
-          {['Python', 'SQL', 'Power BI', 'Tableau', 'Looker Studio', 'Excel', 'Google Sheets', 'Machine Learning', 'FastAPI', 'React', 'Docker', 'Streamlit', 'PostgreSQL', 'Data Cleaning', 'Dashboard Development', 'Workflow Automation'].map(skill => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </div>
+          {[
+  'Data Analysis',
+  'SQL',
+  'Python',
+  'Power BI',
+  'Tableau',
+  'Looker Studio',
+  'Excel',
+  'Google Sheets',
+  'Business Intelligence',
+  'Dashboard Development',
+  'Customer Support Analytics',
+  'SLA Analysis',
+  'Machine Learning',
+  'Data Cleaning',
+  'Data Visualization',
+  'Streamlit',
+  'FastAPI',
+  'Workflow Automation',
+  'AI Automation',
+  'Process Improvement'
+].map(skill => (
+  <span key={skill}>{skill}</span>
+))}        </div>
       </section>
 
       <section className="contact" id="contact">
