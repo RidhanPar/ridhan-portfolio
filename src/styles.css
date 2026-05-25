@@ -951,7 +951,7 @@ body {
 .projectCard:nth-child(1)::after,
 .projectCard:nth-child(2)::after,
 .projectCard:nth-child(3)::after {
-  content: "Featured";
+  content: "Top Project";
   position: absolute;
   top: 24px;
   right: 24px;
