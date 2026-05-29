@@ -193,7 +193,7 @@ function App() {
       <section className="hero">
   <div className="heroText">
     <div className="pill">
-      Data Analyst • BI Specialist • Data Science • AI Automation
+      Data Analyst • BI • Data Science • Support Analytics • AI Automation
     </div>
 
     <h1>
@@ -201,12 +201,11 @@ function App() {
     </h1>
 
     <p>
-      Computer Science graduate based in Riga, focused on data analytics,
-      business intelligence, machine learning, customer support operations,
-      and AI-powered workflow automation. I build dashboards, prediction systems,
-      and automation tools that solve real business problems.
+      Data Analyst with 4+ years of experience in business reporting, dashboard development,
+      customer support analytics, SQL, Python, BI tools, and workflow automation. Based in Riga,
+      I build dashboards, prediction systems, and automation tools that improve business visibility
+      and operational efficiency.
     </p>
-
     <div className="buttons">
       <a className="goldBtn" href="#projects">View Projects</a>
 
@@ -232,36 +231,45 @@ function App() {
 </section>
       <section className="stats">
   <div>
-    <h3>Data Analytics</h3>
+    <h3>4+ Years in Data Analysis</h3>
     <p>
-      Strong foundation in SQL, Python, Excel, and data cleaning to analyze
-      trends, identify patterns, and support business decisions.
+      Experience analyzing business, sales, customer, marketing, and operational data
+      to identify trends, improve reporting, and support decision-making.
     </p>
   </div>
 
   <div>
     <h3>BI & Dashboards</h3>
     <p>
-      Built dashboards using Power BI, Tableau, Looker Studio, and Excel to
-      visualize KPIs, customer trends, performance metrics, and operations data.
+      Built dashboards using Power BI, Tableau, Looker Studio, Excel, and Google Sheets
+      to visualize KPIs, performance trends, and operational insights.
     </p>
   </div>
 
   <div>
     <h3>Support Operations + Automation</h3>
     <p>
-      Customer support operations experience combined with self-initiated
-      workflow automation projects for approvals, scheduling, and process improvement.
+      Customer support operations experience combined with self-initiated workflow
+      automation projects for approvals, scheduling, SLA visibility, and process improvement.
     </p>
   </div>
 </section>
-
       <AutomationDemo />
 
       <section className="section" id="experience">
         <div className="sectionHeader">
           <span>Experience</span>
           <h2>Enterprise support, analytics, and automation mindset.</h2>
+        </div>
+
+        <div className="timelineItem">
+          <h3>Data Analyst</h3>
+          <p className="muted">ALIEF MAJU ENTERPRISE • Malaysia • 2021 – Present</p>
+          <p>
+            Analyze business, sales, customer, and operational datasets to identify trends,
+            prepare dashboards, maintain CRM data, and support reporting for import,
+            export, and retail operations.
+          </p>
         </div>
 
         <div className="timeline">
@@ -275,12 +283,6 @@ function App() {
             <h3>Product Specialist</h3>
             <p className="muted">TELUS Digital • Riga, Latvia • 2024 – 2025</p>
             <p>Supported business users across account, advertising, billing, policy, and platform issues while collaborating with product, legal, and technical teams.</p>
-          </div>
-
-          <div className="timelineItem">
-            <h3>Data Analyst</h3>
-            <p className="muted">ALIEF MAJU ENTERPRISE • Malaysia • 2021 – 2024</p>
-            <p>Collected, processed, and analyzed datasets, created reports and dashboards, maintained CRM systems, and supported marketing and business insights.</p>
           </div>
 
           <div className="timelineItem">
