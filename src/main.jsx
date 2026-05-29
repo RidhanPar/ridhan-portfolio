@@ -277,7 +277,7 @@ function App() {
 
           <div className="timelineItem">
             <h3>Senior Product Specialist</h3>
-            <p className="muted">TELUS Digital • Riga, Latvia • 2025 – Present</p>
+            <p className="muted">TELUS Digital • Riga, Latvia • 2025 – 2026
             <p>Troubleshoot advanced advertising issues, analyze backend/case data, identify recurring patterns, and support process improvement through operational insights.</p>
           </div>
 
