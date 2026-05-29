@@ -298,7 +298,7 @@ function App() {
       <section className="section" id="projects">
         <div className="sectionHeader">
           <span>Projects</span>
-          <h2>Selected work across AI, analytics, BI, and automation.</h2>
+          <h2>Selected work across data analytics, BI, machine learning, support operations, and automation.</h2>
         </div>
 
         <div className="projectGrid">
