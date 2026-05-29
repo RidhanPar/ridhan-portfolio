@@ -267,7 +267,7 @@ function App() {
           
           <div className="timelineItem">
           <h3>Data Analyst</h3>
-          <p className="muted">ALIEF MAJU ENTERPRISE • Malaysia • 2021 – Present</p>
+          <p className="muted">ALIEF MAJU ENTERPRISE • Malaysia • Jul 2021 – Present</p>
           <p>
             Analyze business, sales, customer, and operational datasets to identify trends,
             prepare dashboards, maintain CRM data, and support reporting for import,
@@ -277,19 +277,19 @@ function App() {
 
           <div className="timelineItem">
             <h3>Senior Product Specialist</h3>
-            <p className="muted">TELUS Digital • Riga, Latvia • 2025 – 2026 </p>
+            <p className="muted">TELUS Digital • Riga, Latvia • Jun 2025 – May 2026 </p>
             <p>Troubleshoot advanced advertising issues, analyze backend/case data, identify recurring patterns, and support process improvement through operational insights.</p>
           </div>
 
           <div className="timelineItem">
             <h3>Product Specialist</h3>
-            <p className="muted">TELUS Digital • Riga, Latvia • 2024 – 2025</p>
+            <p className="muted">TELUS Digital • Riga, Latvia • Nov 2024 – Jun 2025</p>
             <p>Supported business users across account, advertising, billing, policy, and platform issues while collaborating with product, legal, and technical teams.</p>
           </div>
 
           <div className="timelineItem">
             <h3>Technical Specialist Intern</h3>
-            <p className="muted">Demola Global • Riga, Latvia • 2023</p>
+            <p className="muted">Demola Global • Riga, Latvia • Sep 2023 – Dec 2023</p>
             <p>Built a chatbot and website concept to improve university information access for mature-age students.</p>
           </div>
         </div>
