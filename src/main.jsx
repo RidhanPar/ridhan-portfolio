@@ -201,7 +201,7 @@ function App() {
     </h1>
 
     <p>
-      Data Analyst with 4+ years of experience in business reporting, dashboard development,
+      Certified Data Analyst with 4+ years of experience in business reporting, dashboard development,
       customer support analytics, SQL, Python, BI tools, and workflow automation. Based in Riga,
       I build dashboards, prediction systems, and automation tools that improve business visibility
       and operational efficiency.
@@ -344,14 +344,15 @@ function App() {
           </div>
 
           <div className="eduCard">
-            <h3>Data Visualization with Python</h3>
-            <p>IBM / Coursera</p>
-            <a href="https://www.credly.com/badges/8324a909-d39e-4462-a1f1-b49acca69aba/linked_in_profile" target="_blank">Credential</a>
+            <h3>Google Data Analytics Professional Certificate</h3>
+            <p>Google Career Certificates</p>
+            <a href=" https://coursera.org/share/5fc528ef7a85c5043b393dc742731088" target="_blank">Credential</a>
           </div>
 
           <div className="eduCard">
-            <h3>Google Data Analytics Professional Certificate</h3>
-            <p>Google Career Certificates</p>
+            <h3>Data Visualization with Python</h3>
+            <p>IBM / Coursera</p>
+            <a href="https://www.credly.com/badges/8324a909-d39e-4462-a1f1-b49acca69aba/linked_in_profile" target="_blank">Credential</a>
           </div>
         </div>
       </section>
