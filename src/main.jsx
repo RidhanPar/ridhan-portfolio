@@ -229,6 +229,7 @@ function App() {
     </div>
   </div>
 </section>
+      
       <section className="stats">
   <div>
     <h3>4+ Years in Data Analysis</h3>
@@ -262,7 +263,9 @@ function App() {
           <h2>Enterprise support, analytics, and automation mindset.</h2>
         </div>
 
-        <div className="timelineItem">
+        <div className="timeline">
+          
+          <div className="timelineItem">
           <h3>Data Analyst</h3>
           <p className="muted">ALIEF MAJU ENTERPRISE • Malaysia • 2021 – Present</p>
           <p>
@@ -270,9 +273,8 @@ function App() {
             prepare dashboards, maintain CRM data, and support reporting for import,
             export, and retail operations.
           </p>
-        </div>
+          </div>
 
-        <div className="timeline">
           <div className="timelineItem">
             <h3>Senior Product Specialist</h3>
             <p className="muted">TELUS Digital • Riga, Latvia • 2025 – Present</p>
