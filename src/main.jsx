@@ -333,8 +333,8 @@ function App() {
         <div className="eduGrid">
           <div className="eduCard">
             <h3>Master of Science in Computer Science</h3>
-            <p>ISMA University of Applied Sciences • Riga</p>
-            <a href="https://isma.lv/" target="_blank">University Website</a>
+            <p>Riga Nordic University • 120 ECTS</p>
+            <a href="https://rnu.lv/en/" target="_blank">University Website</a>
           </div>
 
           <div className="eduCard">
