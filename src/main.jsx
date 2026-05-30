@@ -4,6 +4,17 @@ import './styles.css';
 
 const projects = [
   {
+  title: 'AI Automation Command Center',
+  type: 'AI Automation + Operations Decision Support',
+  description:
+    'Built a Streamlit dashboard for identifying, prioritizing, and tracking AI and workflow automation opportunities across business teams. The project includes automation roadmap tracking, priority scoring, executive KPI cards, CSV export, time-saving analysis, and an n8n-style workflow concept.',
+  tech: ['Python', 'Streamlit', 'Pandas', 'Plotly', 'Workflow Automation', 'n8n Concept'],
+  links: [
+    ['Live Demo', 'https://ai-automation-command-center.streamlit.app/'],
+    ['GitHub', 'https://github.com/RidhanPar/ai-automation-command-center']
+  ]
+  },
+  {
     title: 'AI Operations & Workflow Automation Platform',
     type: 'AI Automation',
     description:
