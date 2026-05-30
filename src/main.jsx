@@ -31,7 +31,8 @@ const projects = [
       'Built a support analytics platform that predicts SLA breach risk, monitors ticket performance, and recommends actions for support teams.',
     tech: ['Python', 'Streamlit', 'scikit-learn', 'Pandas', 'Plotly', 'SQL'],
     links: [
-      ['GitHub', 'https://github.com/RidhanPar/customer-support-intelligence-platform']
+  ['Live Demo', 'https://customer-support-intelligence-platform.streamlit.app/'],
+  ['GitHub', 'https://github.com/RidhanPar/customer-support-intelligence-platform']
     ]
   },
   {
