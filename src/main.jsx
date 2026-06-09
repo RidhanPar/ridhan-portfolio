@@ -1,188 +1,311 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import {
+  ArrowUpRight,
+  BarChart3,
+  Bot,
+  CheckCircle2,
+  Code2,
+  Database,
+  Download,
+  Mail,
+  Menu,
+  Moon,
+  Search,
+  Sun,
+  Workflow,
+  X,
+  Zap
+} from 'lucide-react';
 import './styles.css';
 
 const projects = [
   {
-  title: 'AI Automation Command Center',
-  type: 'AI Automation + Operations Decision Support',
-  description:
-    'Built a Streamlit dashboard for identifying, prioritizing, and tracking AI and workflow automation opportunities across business teams. The project includes automation roadmap tracking, priority scoring, executive KPI cards, CSV export, time-saving analysis, and an n8n-style workflow concept.',
-  tech: ['Python', 'Streamlit', 'Pandas', 'Plotly', 'Workflow Automation', 'n8n Concept'],
-  links: [
-    ['Live Demo', 'https://ai-automation-command-center.streamlit.app/'],
-    ['GitHub', 'https://github.com/RidhanPar/ai-automation-command-center']
-  ]
+    title: 'PayGuard AI Fraud Detection',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Explainable AI',
+    description:
+      'Explainable payment fraud detection prototype with XGBoost, SHAP, automated tests, CI, Docker, and an interactive Streamlit decision interface.',
+    tech: ['Python', 'XGBoost', 'SHAP', 'Streamlit', 'Docker', 'CI'],
+    outcome: 'Turns model predictions into transparent, reviewable fraud signals.',
+    links: [
+      ['Live demo', 'https://payguard-ai-fraud-detection.streamlit.app/'],
+      ['GitHub', 'https://github.com/RidhanPar/payguard-ai-fraud-detection']
+    ],
+    featured: true
   },
   {
-    title: 'AI Operations & Workflow Automation Platform',
-    type: 'AI Automation',
+    title: 'DirectDebit IQ',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Payment intelligence',
     description:
-      'Enterprise-style AI operations platform for SLA monitoring, ticket routing, workflow automation, AI summaries, and operational dashboards.',
-    tech: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Docker', 'OpenAI API'],
+      'End-to-end direct debit analytics and failure prediction with SQL, XGBoost, MLflow, dbt-style models, testing, and an operational dashboard.',
+    tech: ['SQL', 'XGBoost', 'MLflow', 'dbt', 'Streamlit'],
+    outcome: 'Surfaces payment failure risk and the drivers behind it.',
     links: [
-      ['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']
-    ]
+      ['Live demo', 'https://directdebit-iq.streamlit.app/'],
+      ['GitHub', 'https://github.com/RidhanPar/directdebit-iq']
+    ],
+    featured: true
+  },
+  {
+    title: 'Baltic Commerce Intelligence',
+    category: 'Data & BI',
+    eyebrow: 'Featured / Analytics engineering',
+    description:
+      'A broad commerce analytics portfolio spanning Python, SQL, Excel, Power BI/DAX, Snowflake, dbt, Databricks, Looker, R, tests, and CI.',
+    tech: ['Python', 'SQL', 'Power BI', 'Snowflake', 'dbt', 'Databricks'],
+    outcome: 'Connects analytics engineering, BI, and decision-ready reporting.',
+    links: [['GitHub', 'https://github.com/RidhanPar/baltic-commerce-intelligence']],
+    featured: true
+  },
+  {
+    title: 'AI Automation Command Center',
+    category: 'AI & Automation',
+    eyebrow: 'Featured / Operations strategy',
+    description:
+      'Decision-support dashboard for scoring, prioritizing, and tracking AI and workflow automation opportunities across business teams.',
+    tech: ['Python', 'Streamlit', 'Pandas', 'Plotly', 'Workflow Automation'],
+    outcome: 'Translates automation ideas into a measurable delivery roadmap.',
+    links: [
+      ['Live demo', 'https://ai-automation-command-center.streamlit.app/'],
+      ['GitHub', 'https://github.com/RidhanPar/ai-automation-command-center']
+    ],
+    featured: true
   },
   {
     title: 'Customer Support Intelligence Platform',
-    type: 'Machine Learning + Operations Analytics',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Support operations',
     description:
-      'Built a support analytics platform that predicts SLA breach risk, monitors ticket performance, and recommends actions for support teams.',
-    tech: ['Python', 'Streamlit', 'scikit-learn', 'Pandas', 'Plotly', 'SQL'],
+      'SLA monitoring and breach-prediction platform with risk scoring, ticket prioritization, KPI views, and recommended support actions.',
+    tech: ['Python', 'scikit-learn', 'SQL', 'Plotly', 'Streamlit'],
+    outcome: 'Helps support teams act before high-risk tickets breach SLA.',
     links: [
-  ['Live Demo', 'https://customer-support-intelligence-platform.streamlit.app/'],
-  ['GitHub', 'https://github.com/RidhanPar/customer-support-intelligence-platform']
-    ]
+      ['Live demo', 'https://customer-support-intelligence-platform.streamlit.app/'],
+      ['GitHub', 'https://github.com/RidhanPar/customer-support-intelligence-platform']
+    ],
+    featured: true
   },
   {
-    title: 'EduPulse Student Performance Prediction',
-    type: 'Machine Learning System',
+    title: 'AI Ops Workflow Automation Platform',
+    category: 'AI & Automation',
+    eyebrow: 'Featured / Agent-ready operations',
     description:
-      'Developed a student early warning platform that predicts academic risk, explains feature importance, and compares predictions with actual outcomes.',
+      'Enterprise-style AI operations platform for ticket routing, SLA monitoring, workflow automation, AI summaries, and operational visibility.',
+    tech: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Docker', 'OpenAI API'],
+    outcome: 'Combines operational data, AI assistance, and workflow execution.',
+    links: [['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']],
+    featured: true
+  },
+  {
+    title: 'EduPulse Platform',
+    category: 'ML & Analytics',
+    eyebrow: 'Machine learning system',
+    description:
+      'Student early-warning platform that predicts academic risk, explains feature importance, and compares predictions with actual outcomes.',
     tech: ['Python', 'Flask', 'scikit-learn', 'Pandas', 'HTML', 'CSS'],
+    outcome: 'Makes academic-risk intervention more proactive and explainable.',
     links: [
-      ['Live Demo', 'https://edupulse-platform.onrender.com/'],
+      ['Live demo', 'https://edupulse-platform.onrender.com/'],
       ['GitHub', 'https://github.com/RidhanPar/edupulse-platform']
     ]
   },
   {
-    title: 'Smart Workforce & Approval Automation System',
-    type: 'Self-Initiated TELUS Innovation',
+    title: 'Data Analysis Projects',
+    category: 'Data & BI',
+    eyebrow: 'Analytics portfolio',
     description:
-      'Created internal Google Sheets automation for taxi approval, shift swap validation, workforce coordination, and operational visibility.',
-    tech: ['Google Sheets', 'Advanced Formulas', 'SQL', 'Power BI'],
-    links: []
+      'Collection of practical analysis work including movie-industry exploration, SQL housing-data cleaning, COVID-19 analysis, and visualization.',
+    tech: ['Python', 'SQL', 'Pandas', 'Tableau', 'Data Cleaning'],
+    outcome: 'Demonstrates hands-on analysis from raw data to insight.',
+    links: [['GitHub', 'https://github.com/RidhanPar/DataAnalysisProjects']]
   },
   {
-    title: 'Data Visualization and BI Using Looker',
-    type: 'Business Intelligence',
+    title: 'Book Social Network',
+    category: 'Full-stack',
+    eyebrow: 'Community product',
     description:
-      'Designed an interactive Looker Studio dashboard to analyze order trends, regional sales distribution, customer segments, and product categories.',
-    tech: ['Looker Studio', 'Data Visualization', 'BI Reporting'],
+      'A social-network experience for book readers to discover books, connect with other readers, and exchange recommendations.',
+    tech: ['TypeScript', 'Angular', 'Spring Boot', 'REST API'],
+    outcome: 'Explores end-to-end product development and community features.',
+    links: [['GitHub', 'https://github.com/RidhanPar/book-social-network']]
+  },
+  {
+    title: 'E-Commerce Store',
+    category: 'Full-stack',
+    eyebrow: 'Commerce experience',
+    description:
+      'Angular and TypeScript storefront focused on reusable UI patterns, product discovery, and a clear shopping journey.',
+    tech: ['TypeScript', 'Angular', 'Frontend Development'],
+    outcome: 'Shows practical component-driven commerce development.',
+    links: [['GitHub', 'https://github.com/RidhanPar/E-Commerce-Store']]
+  },
+  {
+    title: 'Employee Management System',
+    category: 'Full-stack',
+    eyebrow: 'Java + React application',
+    description:
+      'Full-stack employee management application represented across separate Spring Boot backend and React frontend repositories.',
+    tech: ['Java', 'Spring Boot', 'React', 'REST API'],
+    outcome: 'Demonstrates a separated frontend and backend application architecture.',
     links: [
-      ['Dashboard', 'https://lookerstudio.google.com/reporting/94f4c3d9-5233-457c-8e15-354910b8b7ae']
+      ['Backend', 'https://github.com/RidhanPar/employee-management-system'],
+      ['Frontend', 'https://github.com/RidhanPar/employee-management-system-ui']
     ]
   },
   {
-    title: 'Casino Data Visualization Project',
-    type: 'Tableau Dashboard',
+    title: 'Restaurant Reservation Web',
+    category: 'Full-stack',
+    eyebrow: 'Reservation experience',
     description:
-      'Created multiple Tableau dashboards showing monthly trends, quarterly changes, casino statistics, and operational insights.',
-    tech: ['Tableau', 'Calculated Fields', 'Parameters', 'Dashboards'],
-    links: [
-      ['Tableau', 'https://public.tableau.com/app/profile/ridhan.parvendhan/viz/Evol_task/WagerT1#1']
-    ]
-  },
-  {
-    title: 'Movie Industry Data Analysis',
-    type: 'Python Data Analysis',
-    description:
-      'Analyzed movie industry data using Python to clean data, explore correlations, and visualize financial performance patterns.',
-    tech: ['Python', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn'],
-    links: [
-      ['GitHub', 'https://github.com/RidhanPar/DataAnalysisProjects/blob/main/MovieDataAnalysisPython.ipynb']
-    ]
-  },
-  {
-    title: 'Housing Data Cleaning Project',
-    type: 'SQL Data Cleaning',
-    description:
-      'Cleaned Nashville housing data using SQL to standardize dates, split address fields, remove duplicates, and improve reporting readiness.',
-    tech: ['SQL', 'CTE', 'ROW_NUMBER', 'CASE', 'Data Cleaning'],
-    links: [
-      ['GitHub', 'https://github.com/RidhanPar/DataAnalysisProjects/blob/main/DataCleaningSQLProject.sql']
-    ]
-  },
-  {
-    title: 'COVID-19 Data Analysis',
-    type: 'SQL + Tableau',
-    description:
-      'Explored global COVID-19 deaths and vaccination data using SQL and built a Tableau dashboard to present key findings.',
-    tech: ['SQL', 'Tableau', 'CTE', 'Views', 'Window Functions'],
-    links: [
-      ['SQL Script', 'https://github.com/RidhanPar/DataAnalysisProjects/blob/main/CovidDataExplorationScript.sql'],
-      ['Dashboard', 'https://public.tableau.com/views/Covid19Visualisation_17142555358570/Dashboard1?:language=en-US&publish=yes&:sid=&:display_count=n&:origin=viz_share_link']
-    ]
-  },
-  {
-    title: 'Advanced Excel Data Analytics Project',
-    type: 'Excel Dashboard',
-    description:
-      'Built an Excel analytics dashboard using pivot tables, data cleaning, filters, and charts to analyze behavioral and customer trends.',
-    tech: ['Excel', 'Pivot Tables', 'Dashboard', 'Data Cleaning'],
-    links: []
+      'Restaurant reservation website built as an early web-development project with a focus on practical booking interactions.',
+    tech: ['JavaScript', 'HTML', 'CSS'],
+    outcome: 'Captures foundational web-development and interaction design skills.',
+    links: [['GitHub', 'https://github.com/RidhanPar/Restaurent_reservation_web']]
   }
 ];
 
-function AutomationDemo() {
-  const steps = [
+const agentWorkflows = [
   {
-    title: 'Data Collected',
-    label: 'Step 01',
-    text: 'Operational data from tickets, approvals, schedules, SLA records, and customer support activity is collected into a structured view.',
-    metric: 'Clean',
-    metricLabel: 'Data Foundation'
+    name: 'Codex',
+    role: 'Repository-scale implementation',
+    description:
+      'Use Codex as a coding agent to inspect a codebase, implement scoped changes, run checks, and prepare production-ready GitHub updates.',
+    outputs: ['Code changes', 'Tests and builds', 'GitHub delivery']
   },
   {
-    title: 'KPIs Analyzed',
-    label: 'Step 02',
-    text: 'Key metrics such as SLA risk, backlog, resolution time, request volume, and team performance are analyzed for trends and issues.',
-    metric: 'BI',
-    metricLabel: 'Decision Visibility'
+    name: 'Cowork',
+    role: 'Collaborative knowledge work',
+    description:
+      'Apply Cowork-style agent collaboration to research, organize evidence, draft deliverables, and keep complex work moving with clear checkpoints.',
+    outputs: ['Research synthesis', 'Structured drafts', 'Review loops']
   },
   {
-    title: 'Risk Predicted',
-    label: 'Step 03',
-    text: 'Machine learning or rule-based logic identifies potential SLA breaches, workflow delays, and operational bottlenecks before they become bigger problems.',
-    metric: 'ML',
-    metricLabel: 'Early Warning'
+    name: 'MCP + Tool-Using Agents',
+    role: 'Connected workflow orchestration',
+    description:
+      'Design agent workflows that connect to tools and business systems through MCP-style interfaces, with verification and human review built in.',
+    outputs: ['Tool calls', 'Workflow automation', 'Human-in-the-loop controls']
   },
   {
-    title: 'Workflow Automated',
-    label: 'Step 04',
-    text: 'Automation helps route requests, validate approvals, trigger alerts, update dashboards, and reduce repetitive manual work.',
-    metric: 'Auto',
-    metricLabel: 'Process Improvement'
+    name: 'CI and Observability',
+    role: 'Reliable agent delivery',
+    description:
+      'Support agent-assisted delivery with automated checks, clear logs, explainable outputs, and measurable operational outcomes.',
+    outputs: ['Quality gates', 'Auditability', 'Operational metrics']
   }
 ];
-  const [activeStep, setActiveStep] = useState(0);
-  const step = steps[activeStep];
+
+const skills = [
+  'SQL',
+  'Python',
+  'Power BI',
+  'Tableau',
+  'Looker Studio',
+  'Excel',
+  'Snowflake',
+  'dbt',
+  'Databricks',
+  'Machine Learning',
+  'XGBoost',
+  'SHAP',
+  'Streamlit',
+  'FastAPI',
+  'React',
+  'Workflow Automation',
+  'Codex',
+  'Cowork',
+  'MCP',
+  'AI Agents',
+  'GitHub Actions',
+  'Docker'
+];
+
+function ProjectCard({ project }) {
+  return (
+    <article className={`projectCard ${project.featured ? 'featured' : ''}`}>
+      <div className="projectTopline">
+        <p className="eyebrow">{project.eyebrow}</p>
+        {project.featured && <span className="featuredBadge">Featured</span>}
+      </div>
+      <h3>{project.title}</h3>
+      <p className="projectDescription">{project.description}</p>
+      <p className="outcome">
+        <CheckCircle2 size={17} aria-hidden="true" />
+        {project.outcome}
+      </p>
+      <div className="tags" aria-label={`${project.title} technologies`}>
+        {project.tech.map((item) => (
+          <span key={item}>{item}</span>
+        ))}
+      </div>
+      <div className="projectLinks">
+        {project.links.map(([label, url]) => (
+          <a key={url} href={url} target="_blank" rel="noreferrer">
+            {label}
+            <ArrowUpRight size={16} aria-hidden="true" />
+          </a>
+        ))}
+      </div>
+    </article>
+  );
+}
+
+function AgentLab() {
+  const [activeAgent, setActiveAgent] = useState(0);
+  const agent = agentWorkflows[activeAgent];
 
   return (
-    <section className="automationDemo">
-      <div className="sectionHeader">
-  <span>Data + BI + Automation Demo</span>
-  <h2>How I use analytics and automation to improve operations.</h2>
-</div>
-
-      <div className="demoGrid">
-        <div className="demoPanel">
-          <div className="demoTop">
-            <p>{step.label}</p>
-            <strong>{step.metric}</strong>
-          </div>
-
-          <h3>{step.title}</h3>
-          <p>{step.text}</p>
-
-          <div className="demoMetric">
-            <span>{step.metric}</span>
-            <p>{step.metricLabel}</p>
-          </div>
+    <section className="section agentSection" id="agents">
+      <div className="sectionHeader splitHeader">
+        <div>
+          <p className="sectionLabel">AI agent workflow</p>
+          <h2>Using agents as capable collaborators, not black boxes.</h2>
         </div>
+        <p>
+          I combine agent-assisted execution with analytics discipline: clear scope, connected tools,
+          verification, and measurable outcomes.
+        </p>
+      </div>
 
-        <div className="workflowSteps">
-          {steps.map((item, index) => (
+      <div className="agentLab">
+        <div className="agentTabs" role="tablist" aria-label="AI agent workflow examples">
+          {agentWorkflows.map((item, index) => (
             <button
-              key={item.title}
-              className={activeStep === index ? 'workflowStep active' : 'workflowStep'}
-              onClick={() => setActiveStep(index)}
+              key={item.name}
+              type="button"
+              role="tab"
+              aria-selected={activeAgent === index}
+              className={activeAgent === index ? 'agentTab active' : 'agentTab'}
+              onClick={() => setActiveAgent(index)}
             >
-              <span>{item.label}</span>
-              <strong>{item.title}</strong>
+              <span>0{index + 1}</span>
+              <strong>{item.name}</strong>
+              <small>{item.role}</small>
             </button>
           ))}
+        </div>
+
+        <div className="agentPanel" role="tabpanel">
+          <div className="terminalBar">
+            <span />
+            <span />
+            <span />
+            <p>agent-workflow / {agent.name.toLowerCase().replaceAll(' ', '-')}</p>
+          </div>
+          <Bot size={34} aria-hidden="true" />
+          <p className="sectionLabel">{agent.role}</p>
+          <h3>{agent.name}</h3>
+          <p>{agent.description}</p>
+          <div className="agentOutputs">
+            {agent.outputs.map((output) => (
+              <span key={output}>
+                <CheckCircle2 size={16} aria-hidden="true" />
+                {output}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -190,231 +313,286 @@ function AutomationDemo() {
 }
 
 function App() {
+  const [theme, setTheme] = useState(() => localStorage.getItem('theme') || 'light');
+  const [filter, setFilter] = useState('All');
+  const [query, setQuery] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const categories = ['All', ...new Set(projects.map((project) => project.category))];
+  const filteredProjects = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    return projects.filter((project) => {
+      const matchesFilter = filter === 'All' || project.category === filter;
+      const searchable = `${project.title} ${project.description} ${project.tech.join(' ')}`.toLowerCase();
+      return matchesFilter && searchable.includes(normalizedQuery);
+    });
+  }, [filter, query]);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className="site">
       <header className="nav">
-        <div className="logo">Ridhan Parvendhan<span>.</span></div>
-        <div className="navLinks">
-          <a href="#projects">Projects</a>
-          <a href="#experience">Experience</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+        <a className="logo" href="#top" onClick={closeMenu} aria-label="Ridhan Parvendhan home">
+          RP<span>.</span>
+        </a>
+        <nav className={menuOpen ? 'navLinks open' : 'navLinks'} aria-label="Primary navigation">
+          <a href="#projects" onClick={closeMenu}>Projects</a>
+          <a href="#agents" onClick={closeMenu}>AI Agents</a>
+          <a href="#experience" onClick={closeMenu}>Experience</a>
+          <a href="#contact" onClick={closeMenu}>Contact</a>
+        </nav>
+        <div className="navActions">
+          <button
+            type="button"
+            className="iconButton"
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+          >
+            {theme === 'light' ? <Moon size={19} /> : <Sun size={19} />}
+          </button>
+          <button
+            type="button"
+            className="iconButton menuButton"
+            aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
       </header>
 
-      <section className="hero">
-  <div className="heroText">
-    <div className="pill">
-      Data Analyst • BI • Data Science • Support Analytics • AI Automation
-    </div>
-
-    <h1>
-      Hi, I’m Ridhan. <span>I turn data into business decisions.</span>
-    </h1>
-
-    <p>
-      Certified Data Analyst with 4+ years of experience in business reporting, dashboard development,
-      customer support analytics, SQL, Python, BI tools, and workflow automation. Based in Riga,
-      I build dashboards, prediction systems, and automation tools that improve business visibility
-      and operational efficiency.
-    </p>
-    <div className="buttons">
-      <a className="goldBtn" href="#projects">View Projects</a>
-
-      <a className="goldBtn" href="/Ridhan.pdf" download>
-        Download CV
-      </a>
-
-      <a className="plainBtn" href="mailto:ridhanparvendhan@gmail.com">
-        Contact Me
-      </a>
-    </div>
-  </div>
-
-  <div className="photoColumn">
-    <div className="photoFrame">
-      <img
-        src="/ridhan-photo.png"
-        alt="Ridhan Parvendhan"
-        className="profilePhoto"
-      />
-    </div>
-  </div>
-</section>
-      
-      <section className="stats">
-  <div>
-    <h3>4+ Years in Data Analysis</h3>
-    <p>
-      Experience analyzing business, sales, customer, marketing, and operational data
-      to identify trends, improve reporting, and support decision-making.
-    </p>
-  </div>
-
-  <div>
-    <h3>BI & Dashboards</h3>
-    <p>
-      Built dashboards using Power BI, Tableau, Looker Studio, Excel, and Google Sheets
-      to visualize KPIs, performance trends, and operational insights.
-    </p>
-  </div>
-
-  <div>
-    <h3>Support Operations + Automation</h3>
-    <p>
-      Customer support operations experience combined with self-initiated workflow
-      automation projects for approvals, scheduling, SLA visibility, and process improvement.
-    </p>
-  </div>
-</section>
-      <AutomationDemo />
-
-      <section className="section" id="experience">
-        <div className="sectionHeader">
-          <span>Experience</span>
-          <h2>Enterprise support, analytics, and automation mindset.</h2>
-        </div>
-
-        <div className="timeline">
-          
-          <div className="timelineItem">
-          <h3>Data Analyst</h3>
-          <p className="muted">ALIEF MAJU ENTERPRISE • Malaysia • Jul 2021 – Present</p>
-          <p>
-            Analyze business, sales, customer, and operational datasets to identify trends,
-            prepare dashboards, maintain CRM data, and support reporting for import,
-            export, and retail operations.
-          </p>
-          </div>
-
-          <div className="timelineItem">
-            <h3>Senior Product Specialist</h3>
-            <p className="muted">TELUS Digital • Riga, Latvia • Jun 2025 – May 2026 </p>
-            <p>Troubleshoot advanced advertising issues, analyze backend/case data, identify recurring patterns, and support process improvement through operational insights.</p>
-          </div>
-
-          <div className="timelineItem">
-            <h3>Product Specialist</h3>
-            <p className="muted">TELUS Digital • Riga, Latvia • Nov 2024 – Jun 2025</p>
-            <p>Supported business users across account, advertising, billing, policy, and platform issues while collaborating with product, legal, and technical teams.</p>
-          </div>
-
-          <div className="timelineItem">
-            <h3>Technical Specialist Intern</h3>
-            <p className="muted">Demola Global • Riga, Latvia • Sep 2023 – Dec 2023</p>
-            <p>Built a chatbot and website concept to improve university information access for mature-age students.</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" id="projects">
-        <div className="sectionHeader">
-          <span>Projects</span>
-          <h2>Selected work across data analytics, BI, machine learning, support operations, and automation.</h2>
-        </div>
-
-        <div className="projectGrid">
-          {projects.map((project) => (
-            <div className="projectCard" key={project.title}>
-              <p className="type">{project.type}</p>
-              <h3>{project.title}</h3>
-              <p>{project.description}</p>
-
-              <div className="tags">
-                {project.tech.map((item) => <span key={item}>{item}</span>)}
-              </div>
-
-              {project.links.length > 0 && (
-                <div className="projectLinks">
-                  {project.links.map(([label, url]) => (
-                    <a key={url} href={url} target="_blank">{label}</a>
-                  ))}
-                </div>
-              )}
+      <main id="top">
+        <section className="hero">
+          <div className="heroText">
+            <div className="availability">
+              <span />
+              Open to data, AI automation, and agentic workflow opportunities
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="section" id="education">
-        <div className="sectionHeader">
-          <span>Education & Certifications</span>
-          <h2>Academic background and verified learning.</h2>
-        </div>
-
-        <div className="eduGrid">
-          <div className="eduCard">
-            <h3>Master of Science in Computer Science</h3>
-            <p>Riga Nordic University • 120 ECTS</p>
-            <a href="https://rnu.lv/en/" target="_blank">University Website</a>
+            <p className="kicker">Data Analyst / AI Automation Builder / Operations Thinker</p>
+            <h1>
+              I turn data, AI agents, and automation into <span>business outcomes.</span>
+            </h1>
+            <p className="heroIntro">
+              I am Ridhan Parvendhan, a certified data analyst in Riga with 4+ years of experience
+              building decision-ready dashboards, predictive systems, and practical automation for
+              business and support operations.
+            </p>
+            <div className="buttons">
+              <a className="primaryButton" href="#projects">
+                Explore my work
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+              <a className="secondaryButton" href="/Ridhan.pdf" download>
+                <Download size={17} aria-hidden="true" />
+                Download CV
+              </a>
+              <a className="textButton" href="mailto:ridhanparvendhan@gmail.com">
+                Let&apos;s talk
+                <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
+            </div>
+            <div className="heroProof" aria-label="Portfolio highlights">
+              <div><strong>13</strong><span>Public GitHub repositories represented</span></div>
+              <div><strong>5</strong><span>Live analytical products</span></div>
+              <div><strong>4+</strong><span>Years in data analysis</span></div>
+            </div>
           </div>
 
-          <div className="eduCard">
-            <h3>Bachelor Degree of Engineering Science in Computer Science and Control</h3>
-            <p>Riga Technical University • 180 ECTS</p>
-            <a href="https://www.rtu.lv/" target="_blank">University Website</a>
+          <div className="heroVisual">
+            <div className="photoFrame">
+              <img src="/ridhan-photo.png" alt="Ridhan Parvendhan" />
+            </div>
+            <div className="floatingCard cardOne">
+              <Database size={18} aria-hidden="true" />
+              <span>Analytics engineering</span>
+            </div>
+            <div className="floatingCard cardTwo">
+              <Bot size={18} aria-hidden="true" />
+              <span>Agentic workflows</span>
+            </div>
+            <div className="floatingCard cardThree">
+              <Workflow size={18} aria-hidden="true" />
+              <span>Automation delivery</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="capabilityStrip" aria-label="Core capabilities">
+          <div><BarChart3 size={22} /><span>Business intelligence</span></div>
+          <div><Database size={22} /><span>Analytics engineering</span></div>
+          <div><Bot size={22} /><span>AI agents</span></div>
+          <div><Zap size={22} /><span>Workflow automation</span></div>
+          <div><Code2 size={22} /><span>Data products</span></div>
+        </section>
+
+        <section className="section" id="projects">
+          <div className="sectionHeader splitHeader">
+            <div>
+              <p className="sectionLabel">Selected and GitHub work</p>
+              <h2>Projects built to answer real operational questions.</h2>
+            </div>
+            <p>
+              The collection includes every substantive public GitHub project, with the strongest
+              recent analytics and automation work featured first.
+            </p>
           </div>
 
-          <div className="eduCard">
-            <h3>Google Data Analytics Professional Certificate</h3>
-            <p>Google Career Certificates</p>
-            <a href=" https://coursera.org/share/5fc528ef7a85c5043b393dc742731088" target="_blank">Credential</a>
+          <div className="projectControls">
+            <div className="filters" aria-label="Filter projects by category">
+              {categories.map((category) => (
+                <button
+                  type="button"
+                  key={category}
+                  className={filter === category ? 'filter active' : 'filter'}
+                  onClick={() => setFilter(category)}
+                  aria-pressed={filter === category}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+            <label className="searchBox">
+              <Search size={18} aria-hidden="true" />
+              <span className="srOnly">Search projects</span>
+              <input
+                type="search"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Search projects or tools"
+              />
+            </label>
           </div>
 
-          <div className="eduCard">
-            <h3>Data Visualization with Python</h3>
-            <p>IBM / Coursera</p>
-            <a href="https://www.credly.com/badges/8324a909-d39e-4462-a1f1-b49acca69aba/linked_in_profile" target="_blank">Credential</a>
+          <div className="resultsLine" aria-live="polite">
+            Showing {filteredProjects.length} of {projects.length} project stories
           </div>
-        </div>
-      </section>
 
-      <section className="section skills">
-        <div className="sectionHeader">
-          <span>Skills</span>
-          <h2>Tools I use to solve business problems.</h2>
-        </div>
-
-        <div className="skillGrid">
-          {[
-  'Data Analysis',
-  'SQL',
-  'Python',
-  'Power BI',
-  'Tableau',
-  'Looker Studio',
-  'Excel',
-  'Google Sheets',
-  'Business Intelligence',
-  'Dashboard Development',
-  'Customer Support Analytics',
-  'SLA Analysis',
-  'Machine Learning',
-  'Data Cleaning',
-  'Data Visualization',
-  'Streamlit',
-  'FastAPI',
-  'Workflow Automation',
-  'AI Automation',
-  'Process Improvement'
-].map(skill => (
-  <span key={skill}>{skill}</span>
-))}        </div>
-      </section>
-
-      <section className="contact" id="contact">
-        <div className="contactBox">
-          <h2>Let’s build smarter workflows.</h2>
-          <p>Open to AI automation, data analytics, BI, operations analytics, workflow transformation, and process improvement opportunities.</p>
-
-          <div className="contactButtons">
-            <a className="goldBtn" href="mailto:ridhanparvendhan@gmail.com">Email Me</a>
-            <a className="plainBtn" href="https://github.com/RidhanPar/" target="_blank">GitHub</a>
-            <a className="plainBtn" href="https://ridhan-portfolio.vercel.app/" target="_blank">Portfolio</a>
-            <a className="plainBtn" href="https://www.linkedin.com/in/ridhan-parvendhan-0253b6226/" target="_blank">LinkedIn</a>
+          <div className="projectGrid">
+            {filteredProjects.map((project) => (
+              <ProjectCard key={project.title} project={project} />
+            ))}
           </div>
-        </div>
-      </section>
+        </section>
+
+        <AgentLab />
+
+        <section className="section" id="experience">
+          <div className="sectionHeader splitHeader">
+            <div>
+              <p className="sectionLabel">Experience</p>
+              <h2>Technical depth grounded in business operations.</h2>
+            </div>
+            <p>
+              My work sits where reporting, support operations, systems thinking, and process
+              improvement meet.
+            </p>
+          </div>
+          <div className="timeline">
+            <article>
+              <p className="timelineDate">Jul 2021 - Present</p>
+              <div>
+                <h3>Data Analyst</h3>
+                <p className="company">ALIEF MAJU ENTERPRISE / Malaysia</p>
+                <p>Analyze sales, customer, and operational data; maintain CRM quality; and deliver reporting for import, export, and retail decisions.</p>
+              </div>
+            </article>
+            <article>
+              <p className="timelineDate">Jun 2025 - May 2026</p>
+              <div>
+                <h3>Senior Product Specialist</h3>
+                <p className="company">TELUS Digital / Riga, Latvia</p>
+                <p>Resolved advanced advertising issues, analyzed case and backend patterns, and contributed operational insight for process improvement.</p>
+              </div>
+            </article>
+            <article>
+              <p className="timelineDate">Nov 2024 - Jun 2025</p>
+              <div>
+                <h3>Product Specialist</h3>
+                <p className="company">TELUS Digital / Riga, Latvia</p>
+                <p>Supported business users across advertising, billing, policy, and platform issues while collaborating with technical and product teams.</p>
+              </div>
+            </article>
+            <article>
+              <p className="timelineDate">Sep 2023 - Dec 2023</p>
+              <div>
+                <h3>Technical Specialist Intern</h3>
+                <p className="company">Demola Global / Riga, Latvia</p>
+                <p>Built a chatbot and website concept to improve university information access for mature-age students.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="section learningSection">
+          <div className="sectionHeader splitHeader">
+            <div>
+              <p className="sectionLabel">Education and toolkit</p>
+              <h2>A broad technical base, applied with focus.</h2>
+            </div>
+            <p>
+              Formal computer science education, professional analytics certification, and a
+              continually evolving AI-assisted delivery toolkit.
+            </p>
+          </div>
+          <div className="educationGrid">
+            <a href="https://rnu.lv/en/" target="_blank" rel="noreferrer">
+              <span>Master of Science</span>
+              <strong>Computer Science</strong>
+              <p>Riga Nordic University / 120 ECTS</p>
+              <ArrowUpRight size={18} />
+            </a>
+            <a href="https://www.rtu.lv/" target="_blank" rel="noreferrer">
+              <span>Bachelor of Engineering Science</span>
+              <strong>Computer Science and Control</strong>
+              <p>Riga Technical University / 180 ECTS</p>
+              <ArrowUpRight size={18} />
+            </a>
+            <a href="https://coursera.org/share/5fc528ef7a85c5043b393dc742731088" target="_blank" rel="noreferrer">
+              <span>Professional Certificate</span>
+              <strong>Google Data Analytics</strong>
+              <p>Google Career Certificates</p>
+              <ArrowUpRight size={18} />
+            </a>
+            <a href="https://www.credly.com/badges/8324a909-d39e-4462-a1f1-b49acca69aba/linked_in_profile" target="_blank" rel="noreferrer">
+              <span>Credential</span>
+              <strong>Data Visualization with Python</strong>
+              <p>IBM / Coursera</p>
+              <ArrowUpRight size={18} />
+            </a>
+          </div>
+          <div className="skillGrid" aria-label="Technical skills">
+            {skills.map((skill) => <span key={skill}>{skill}</span>)}
+          </div>
+        </section>
+
+        <section className="contact" id="contact">
+          <div>
+            <p className="sectionLabel">Start a conversation</p>
+            <h2>Have a data problem, an automation idea, or an agent workflow to build?</h2>
+            <p>
+              I am open to data analytics, BI, AI automation, operations analytics, and workflow
+              transformation opportunities.
+            </p>
+          </div>
+          <div className="contactLinks">
+            <a href="mailto:ridhanparvendhan@gmail.com"><Mail size={19} />Email</a>
+            <a href="https://github.com/RidhanPar/" target="_blank" rel="noreferrer"><Code2 size={19} />GitHub</a>
+            <a href="https://www.linkedin.com/in/ridhan-parvendhan-0253b6226/" target="_blank" rel="noreferrer"><ArrowUpRight size={19} />LinkedIn</a>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>Ridhan Parvendhan / Data, AI automation, and operations</p>
+        <a href="#top">Back to top <ArrowUpRight size={15} /></a>
+      </footer>
     </div>
   );
 }
