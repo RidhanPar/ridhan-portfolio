@@ -53,10 +53,13 @@ const projects = [
     category: 'Data & BI',
     eyebrow: 'Featured / Analytics engineering',
     description:
-      'A broad commerce analytics portfolio spanning Python, SQL, Excel, Power BI/DAX, Snowflake, dbt, Databricks, Looker, R, tests, and CI.',
-    tech: ['Python', 'SQL', 'Power BI', 'Snowflake', 'dbt', 'Databricks'],
-    outcome: 'Connects analytics engineering, BI, and decision-ready reporting.',
-    links: [['GitHub', 'https://github.com/RidhanPar/baltic-commerce-intelligence']],
+      'Reproducible Baltic commerce analytics case study with Python, SQL, dbt, SQLite, Excel, statistical analysis, tests, and CI.',
+    tech: ['Python', 'SQL', 'dbt', 'SQLite', 'Excel', 'Statistics'],
+    outcome: 'Connects tested analytics models with decision-ready reporting.',
+    links: [
+      ['Live demo', 'https://ridhanpar.github.io/baltic-commerce-intelligence/'],
+      ['GitHub', 'https://github.com/RidhanPar/baltic-commerce-intelligence']
+    ],
     featured: true
   },
   {
@@ -79,7 +82,7 @@ const projects = [
     eyebrow: 'Featured / Support operations',
     description:
       'SLA monitoring and breach-prediction platform with risk scoring, ticket prioritization, KPI views, and recommended support actions.',
-    tech: ['Python', 'scikit-learn', 'SQL', 'Plotly', 'Streamlit'],
+    tech: ['Python', 'scikit-learn', 'Pandas', 'Plotly', 'Streamlit'],
     outcome: 'Helps support teams act before high-risk tickets breach SLA.',
     links: [
       ['Live demo', 'https://customer-support-intelligence-platform.streamlit.app/'],
@@ -90,12 +93,15 @@ const projects = [
   {
     title: 'AI Ops Workflow Automation Platform',
     category: 'AI & Automation',
-    eyebrow: 'Featured / Agent-ready operations',
+    eyebrow: 'Featured / Agentic operations',
     description:
-      'Enterprise-style AI operations platform for ticket routing, SLA monitoring, workflow automation, AI summaries, and operational visibility.',
-    tech: ['Python', 'FastAPI', 'React', 'PostgreSQL', 'Docker', 'OpenAI API'],
-    outcome: 'Combines operational data, AI assistance, and workflow execution.',
-    links: [['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']],
+      'Traceable LangGraph operations agent with RAG, explicit tool orchestration, evaluation, structured traces, and human approval controls.',
+    tech: ['LangGraph', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'OpenTelemetry'],
+    outcome: 'Demonstrates bounded agent orchestration with measurable reliability controls.',
+    links: [
+      ['Live demo', 'https://ridhan-ai-ops-dashboard.onrender.com'],
+      ['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']
+    ],
     featured: true
   },
   {
@@ -168,25 +174,25 @@ const projects = [
 
 const agentWorkflows = [
   {
-    name: 'Codex',
-    role: 'Repository-scale implementation',
+    name: 'Ticket Triage Graph',
+    role: 'Bounded agent orchestration',
     description:
-      'Use Codex as a coding agent to inspect a codebase, implement scoped changes, run checks, and prepare production-ready GitHub updates.',
-    outputs: ['Code changes', 'Tests and builds', 'GitHub delivery']
+      'Route support tickets through a LangGraph workflow that retrieves context, proposes actions, and pauses sensitive changes for approval.',
+    outputs: ['Explicit tool steps', 'Approval gates', 'Deterministic fallback']
   },
   {
-    name: 'Cowork',
-    role: 'Collaborative knowledge work',
+    name: 'Knowledge Retrieval',
+    role: 'Grounded response context',
     description:
-      'Apply Cowork-style agent collaboration to research, organize evidence, draft deliverables, and keep complex work moving with clear checkpoints.',
-    outputs: ['Research synthesis', 'Structured drafts', 'Review loops']
+      'Search a pgvector-backed knowledge base and attach retrieved evidence before the workflow recommends a ticket action.',
+    outputs: ['Vector search', 'Retrieved evidence', 'Source-aware output']
   },
   {
-    name: 'MCP + Tool-Using Agents',
-    role: 'Connected workflow orchestration',
+    name: 'Tool Orchestration',
+    role: 'Connected workflow execution',
     description:
-      'Design agent workflows that connect to tools and business systems through MCP-style interfaces, with verification and human review built in.',
-    outputs: ['Tool calls', 'Workflow automation', 'Human-in-the-loop controls']
+      'Coordinate knowledge search, customer-history lookup, and ticket updates through explicit tools with role checks and audit records.',
+    outputs: ['Tool traces', 'Role checks', 'Audit events']
   },
   {
     name: 'CI and Observability',
@@ -214,9 +220,9 @@ const skills = [
   'FastAPI',
   'React',
   'Workflow Automation',
-  'Codex',
-  'Cowork',
-  'MCP',
+  'LangGraph',
+  'RAG',
+  'OpenTelemetry',
   'AI Agents',
   'GitHub Actions',
   'Docker'
@@ -399,8 +405,8 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>13</strong><span>Public GitHub repositories represented</span></div>
-              <div><strong>5</strong><span>Live analytical products</span></div>
+              <div><strong>12</strong><span>Selected project stories</span></div>
+              <div><strong>7</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years in data analysis</span></div>
             </div>
           </div>
@@ -439,8 +445,8 @@ function App() {
               <h2>Projects built to answer real operational questions.</h2>
             </div>
             <p>
-              The collection includes every substantive public GitHub project, with the strongest
-              recent analytics and automation work featured first.
+              The collection highlights selected public work, with the strongest recent analytics,
+              machine-learning, and automation evidence featured first.
             </p>
           </div>
 
