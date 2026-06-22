@@ -118,6 +118,30 @@ const projects = [
     ]
   },
   {
+    title: 'Marketing AI Automation Platform',
+    category: 'AI & Automation',
+    eyebrow: 'AI-powered marketing',
+    description:
+      'AI-powered marketing toolkit with an ad copy generator, campaign performance analyzer, and A/B variant scorer, built with Streamlit and Claude AI.',
+    tech: ['Python', 'Streamlit', 'Claude AI', 'Pandas', 'Plotly'],
+    outcome: 'Turns raw campaign data into optimised copy and scored variant recommendations.',
+    links: [
+      ['GitHub', 'https://github.com/RidhanPar/marketing-ai-automation-platform']
+    ]
+  },
+  {
+    title: 'PySpark AML Transaction Monitoring',
+    category: 'Data & BI',
+    eyebrow: 'Financial crime analytics',
+    description:
+      'End-to-end Anti-Money Laundering post-transaction analysis pipeline using PySpark, with synthetic data generation, window-function feature engineering, and rule-based risk flagging.',
+    tech: ['Python', 'PySpark', 'Feature Engineering', 'SQL', 'Jupyter'],
+    outcome: 'Demonstrates scalable transaction monitoring logic on 10k+ synthetic financial records.',
+    links: [
+      ['GitHub', 'https://github.com/RidhanPar/pyspark-aml-transaction-analysis']
+    ]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -502,7 +526,7 @@ function App() {
           </div>
           <div className="timeline">
             <article>
-              <p className="timelineDate">Jul 2021 - Present</p>
+              <p className="timelineDate">Jan 2023 - Present</p>
               <div>
                 <h3>Data Analyst</h3>
                 <p className="company">ALIEF MAJU ENTERPRISE / Malaysia</p>
