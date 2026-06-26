@@ -483,7 +483,7 @@ function App() {
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
               <div><strong>18</strong><span>Selected project stories</span></div>
-              <div><strong>8</strong><span>Live project demos</span></div>
+              <div><strong>9</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
