@@ -48,6 +48,33 @@ const projects = [
     featured: true
   },
   {
+    title: 'Web Security Log Anomaly Detector',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Threat detection',
+    description:
+      'Real-time threat detection system that classifies brute force, SQL injection, bot traffic, account takeover, and data exfiltration in Nginx web logs using a three-method ML ensemble.',
+    tech: ['Python', 'PySpark', 'Isolation Forest', 'Apache Kafka', 'AWS S3', 'AWS Athena', 'AWS Lambda', 'Streamlit'],
+    outcome: 'Enables one analyst to monitor 50,000+ events daily — catching attacks in seconds before damage compounds.',
+    links: [
+      ['GitHub', 'https://github.com/RidhanPar/web-security-log-anomaly-detector']
+    ],
+    featured: true
+  },
+  {
+    title: 'Credit Risk Scorecard Engine',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Explainable credit risk',
+    description:
+      'End-to-end credit fraud and default prediction system that approves or declines loan applications and generates a plain-English SHAP and LIME explanation of every decision.',
+    tech: ['Python', 'XGBoost', 'SHAP', 'LIME', 'R', 'MLflow', 'Streamlit', 'optbinning'],
+    outcome: 'Eliminates regulatory audit risk by providing decision-level explanations for every application.',
+    links: [
+      ['Live demo', 'https://credit-risk-scorecard-engine.streamlit.app'],
+      ['GitHub', 'https://github.com/RidhanPar/credit-risk-scorecard-engine']
+    ],
+    featured: true
+  },
+  {
     title: 'DirectDebit IQ',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Payment intelligence',
@@ -129,16 +156,18 @@ const projects = [
     ]
   },
   {
-    title: 'PySpark AML Transaction Monitoring',
-    category: 'Data & BI',
-    eyebrow: 'Financial crime analytics',
+    title: 'PySpark Anti-Money Laundering Pipeline',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Financial crime detection',
     description:
-      'End-to-end Anti-Money Laundering post-transaction analysis pipeline using PySpark, with synthetic data generation, window-function feature engineering, and rule-based risk flagging.',
-    tech: ['Python', 'PySpark', 'Feature Engineering', 'SQL', 'Jupyter'],
-    outcome: 'Demonstrates scalable transaction monitoring logic on 10k+ synthetic financial records.',
+      'Real-time AML transaction monitoring pipeline that flags smurfing, layering, and rapid-velocity transfers across 1M+ records using PySpark, Kafka streaming, dbt, and Delta Lake with a full regulatory audit trail.',
+    tech: ['Python', 'PySpark', 'Apache Kafka', 'dbt', 'Delta Lake', 'Streamlit', 'Docker'],
+    outcome: 'Real-time flagging under 3 seconds enables transaction blocking before funds clear — batch detection cannot do this.',
     links: [
+      ['Live demo', 'https://pyspark-aml-transaction-analysis.streamlit.app/'],
       ['GitHub', 'https://github.com/RidhanPar/pyspark-aml-transaction-analysis']
-    ]
+    ],
+    featured: true
   },
   {
     title: 'Data Analysis Projects',
@@ -268,6 +297,15 @@ const skills = [
   'OpenTelemetry',
   'AI Agents',
   'GitHub Actions',
+  'PySpark',
+  'Apache Kafka',
+  'Isolation Forest',
+  'Delta Lake',
+  'MLflow',
+  'R',
+  'n8n',
+  'OpenAI API',
+  'Anthropic API',
   'Docker'
 ];
 
@@ -422,16 +460,16 @@ function App() {
           <div className="heroText">
             <div className="availability">
               <span />
-              Open to data, AI automation, and agentic workflow opportunities
+              Open to Data Scientist, AI Automation Engineer, and Data Analyst opportunities in Riga and remote
             </div>
-            <p className="kicker">Data Analyst / AI Automation Builder / Operations Thinker</p>
+            <p className="kicker">Data Scientist / AI Automation Engineer / Analytics Builder</p>
             <h1>
               I turn data, AI agents, and automation into <span>business outcomes.</span>
             </h1>
             <p className="heroIntro">
-              I am Ridhan Parvendhan, a certified data analyst in Riga with 4+ years of experience
-              building decision-ready dashboards, predictive systems, and practical automation for
-              business and support operations.
+              I am Ridhan Parvendhan, a Data Scientist and AI Automation Engineer based in Riga with
+              3+ years of experience building fraud detection systems, real-time ML pipelines,
+              LLM-powered automation workflows, and decision-ready analytics for business operations.
             </p>
             <div className="buttons">
               <a className="primaryButton" href="#projects">
@@ -444,9 +482,9 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>16</strong><span>Selected project stories</span></div>
-              <div><strong>7</strong><span>Live project demos</span></div>
-              <div><strong>4+</strong><span>Years in data analysis</span></div>
+              <div><strong>18</strong><span>Selected project stories</span></div>
+              <div><strong>8</strong><span>Live project demos</span></div>
+              <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
 
@@ -541,11 +579,19 @@ function App() {
           </div>
           <div className="timeline">
             <article>
-              <p className="timelineDate">Jan 2023 - Present</p>
+              <p className="timelineDate">Apr 2024 – Present</p>
+              <div>
+                <h3>Data Scientist and AI Automation Engineer</h3>
+                <p className="company">ALIEF MAJU ENTERPRISE / Malaysia (Remote)</p>
+                <p>Built Snowflake data pipelines, 9 n8n automation workflows, LLM API integrations (OpenAI and Anthropic), RAG pipelines with vector databases, and Python scripting frameworks; reduced team manual reporting effort by 40+ hours per week.</p>
+              </div>
+            </article>
+            <article>
+              <p className="timelineDate">Jan 2023 – Apr 2024</p>
               <div>
                 <h3>Data Analyst</h3>
-                <p className="company">ALIEF MAJU ENTERPRISE / Malaysia</p>
-                <p>Analyze sales, customer, and operational data; maintain CRM quality; and deliver reporting for import, export, and retail decisions.</p>
+                <p className="company">ALIEF MAJU ENTERPRISE / Malaysia (Remote)</p>
+                <p>Analysed procurement and logistics data using SQL, Python, and Excel; built Tableau, Power BI, and Looker dashboards monitoring 200+ supplier KPIs; delivered weekly management reports in Google Sheets.</p>
               </div>
             </article>
             <article>
