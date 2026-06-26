@@ -52,7 +52,7 @@ const projects = [
     category: 'ML & Analytics',
     eyebrow: 'Featured / Threat detection',
     description:
-      'Real-time threat detection system that classifies brute force, SQL injection, bot traffic, account takeover, and data exfiltration in Nginx web logs using a three-method ML ensemble.',
+      'Real-time threat detection system that classifies brute force, SQL injection, bot traffic, account takeover, and data exfiltration in Nginx web logs using a three-method ML ensemble — Isolation Forest, Local Outlier Factor, and z-score baseline.',
     tech: ['Python', 'PySpark', 'Isolation Forest', 'Apache Kafka', 'AWS S3', 'AWS Athena', 'AWS Lambda', 'Streamlit'],
     outcome: 'Enables one analyst to monitor 50,000+ events daily — catching attacks in seconds before damage compounds.',
     links: [
@@ -65,7 +65,7 @@ const projects = [
     category: 'ML & Analytics',
     eyebrow: 'Featured / Explainable credit risk',
     description:
-      'End-to-end credit fraud and default prediction system that approves or declines loan applications and generates a plain-English SHAP and LIME explanation of every decision.',
+      'End-to-end credit fraud and default prediction system that approves or declines loan applications and generates a plain-English SHAP and LIME explanation of every decision; built in both Python and R for dual validation.',
     tech: ['Python', 'XGBoost', 'SHAP', 'LIME', 'R', 'MLflow', 'Streamlit', 'optbinning'],
     outcome: 'Eliminates regulatory audit risk by providing decision-level explanations for every application.',
     links: [
@@ -160,7 +160,7 @@ const projects = [
     category: 'ML & Analytics',
     eyebrow: 'Featured / Financial crime detection',
     description:
-      'Real-time AML transaction monitoring pipeline that flags smurfing, layering, and rapid-velocity transfers across 1M+ records using PySpark, Kafka streaming, dbt, and Delta Lake with a full regulatory audit trail.',
+      'Real-time AML transaction monitoring pipeline flagging smurfing, layering, and rapid-velocity transfers across 1M+ records using PySpark, Kafka streaming, dbt, and Delta Lake with a full regulatory audit trail.',
     tech: ['Python', 'PySpark', 'Apache Kafka', 'dbt', 'Delta Lake', 'Streamlit', 'Docker'],
     outcome: 'Real-time flagging under 3 seconds enables transaction blocking before funds clear — batch detection cannot do this.',
     links: [
@@ -460,16 +460,17 @@ function App() {
           <div className="heroText">
             <div className="availability">
               <span />
-              Open to Data Scientist, AI Automation Engineer, and Data Analyst opportunities in Riga and remote
+              Open to AI Automation Engineer, Data Analyst, and Data Scientist opportunities in Riga and remote
             </div>
-            <p className="kicker">Data Scientist / AI Automation Engineer / Analytics Builder</p>
+            <p className="kicker">Data Analyst / AI Automation Engineer / Analytics Builder</p>
             <h1>
               I turn data, AI agents, and automation into <span>business outcomes.</span>
             </h1>
             <p className="heroIntro">
-              I am Ridhan Parvendhan, a Data Scientist and AI Automation Engineer based in Riga with
-              3+ years of experience building fraud detection systems, real-time ML pipelines,
-              LLM-powered automation workflows, and decision-ready analytics for business operations.
+              I am Ridhan Parvendhan, a Data Analyst and AI Automation Engineer based in Riga with
+              3+ years of experience building LLM-powered automation workflows, real-time data
+              pipelines, and BI reporting systems — with independent DS projects in fraud detection,
+              AML monitoring, and security threat detection.
             </p>
             <div className="buttons">
               <a className="primaryButton" href="#projects">
@@ -581,9 +582,9 @@ function App() {
             <article>
               <p className="timelineDate">Apr 2024 – Present</p>
               <div>
-                <h3>Data Scientist and AI Automation Engineer</h3>
+                <h3>AI Automation Engineer</h3>
                 <p className="company">ALIEF MAJU ENTERPRISE / Malaysia (Remote)</p>
-                <p>Built Snowflake data pipelines, 9 n8n automation workflows, LLM API integrations (OpenAI and Anthropic), RAG pipelines with vector databases, and Python scripting frameworks; reduced team manual reporting effort by 40+ hours per week.</p>
+                <p>Built 9 n8n automation pipelines, integrated OpenAI and Anthropic LLM APIs for document processing and reporting, built RAG pipelines with vector databases, automated SQL validation frameworks; reduced team manual reporting effort by 40+ hours per week.</p>
               </div>
             </article>
             <article>
