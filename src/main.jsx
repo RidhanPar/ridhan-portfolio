@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   Code2,
   Database,
-  Download,
   Mail,
   Menu,
   Moon,
@@ -193,6 +192,26 @@ const projects = [
     tech: ['JavaScript', 'HTML', 'CSS'],
     outcome: 'Captures foundational web-development and interaction design skills.',
     links: [['GitHub', 'https://github.com/RidhanPar/Restaurent_reservation_web']]
+  },
+  {
+    title: 'WhatsNew Social Forum',
+    category: 'Full-stack',
+    eyebrow: 'Community platform',
+    description:
+      'Reddit-style discussion platform where users create subreddits, submit posts, comment, and vote, secured with Spring Security and JWT authentication across a Spring Boot API and Angular client.',
+    tech: ['Java', 'Spring Boot', 'Spring Security', 'JWT', 'Angular'],
+    outcome: 'Demonstrates a secured, role-aware full-stack application architecture.',
+    links: [['GitHub', 'https://github.com/RidhanPar/whatsnew']]
+  },
+  {
+    title: 'Social Media Dashboard',
+    category: 'Full-stack',
+    eyebrow: 'Responsive UI build',
+    description:
+      'Responsive social media analytics dashboard with a dark and light theme toggle, built from a Frontend Mentor challenge using a structured SCSS architecture and a Gulp build pipeline.',
+    tech: ['SCSS', 'JavaScript', 'HTML', 'Gulp', 'Responsive Design'],
+    outcome: 'Shows attention to responsive layout, theming, and maintainable styling.',
+    links: [['GitHub', 'https://github.com/RidhanPar/fem-sociam-media-dark-light-toggle-dashboard']]
   }
 ];
 
@@ -419,17 +438,13 @@ function App() {
                 Explore my work
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>
-              <a className="secondaryButton" href="/Ridhan.pdf" download>
-                <Download size={17} aria-hidden="true" />
-                Download CV
-              </a>
               <a className="textButton" href="mailto:ridhanparvendhan@gmail.com">
                 Let&apos;s talk
                 <ArrowUpRight size={17} aria-hidden="true" />
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>12</strong><span>Selected project stories</span></div>
+              <div><strong>16</strong><span>Selected project stories</span></div>
               <div><strong>7</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years in data analysis</span></div>
             </div>
