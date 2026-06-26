@@ -20,6 +20,20 @@ import './styles.css';
 
 const projects = [
   {
+    title: 'AI Ops Workflow Automation Platform',
+    category: 'AI & Automation',
+    eyebrow: 'Featured / Agentic operations',
+    description:
+      'Traceable LangGraph operations agent with RAG, explicit tool orchestration, evaluation, structured traces, and human approval controls.',
+    tech: ['LangGraph', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'OpenTelemetry'],
+    outcome: 'Demonstrates bounded agent orchestration with measurable reliability controls.',
+    links: [
+      ['Live demo', 'https://ridhan-ai-ops-dashboard.onrender.com'],
+      ['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']
+    ],
+    featured: true
+  },
+  {
     title: 'PayGuard AI Fraud Detection',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Explainable AI',
@@ -48,6 +62,20 @@ const projects = [
     featured: true
   },
   {
+    title: 'Customer Support Intelligence Platform',
+    category: 'ML & Analytics',
+    eyebrow: 'Featured / Support operations',
+    description:
+      'SLA monitoring and breach-prediction platform with risk scoring, ticket prioritization, KPI views, and recommended support actions.',
+    tech: ['Python', 'scikit-learn', 'Pandas', 'Plotly', 'Streamlit'],
+    outcome: 'Helps support teams act before high-risk tickets breach SLA.',
+    links: [
+      ['Live demo', 'https://customer-support-intelligence-platform.streamlit.app/'],
+      ['GitHub', 'https://github.com/RidhanPar/customer-support-intelligence-platform']
+    ],
+    featured: true
+  },
+  {
     title: 'Baltic Commerce Intelligence',
     category: 'Data & BI',
     eyebrow: 'Featured / Analytics engineering',
@@ -72,34 +100,6 @@ const projects = [
     links: [
       ['Live demo', 'https://ai-automation-command-center.streamlit.app/'],
       ['GitHub', 'https://github.com/RidhanPar/ai-automation-command-center']
-    ],
-    featured: true
-  },
-  {
-    title: 'Customer Support Intelligence Platform',
-    category: 'ML & Analytics',
-    eyebrow: 'Featured / Support operations',
-    description:
-      'SLA monitoring and breach-prediction platform with risk scoring, ticket prioritization, KPI views, and recommended support actions.',
-    tech: ['Python', 'scikit-learn', 'Pandas', 'Plotly', 'Streamlit'],
-    outcome: 'Helps support teams act before high-risk tickets breach SLA.',
-    links: [
-      ['Live demo', 'https://customer-support-intelligence-platform.streamlit.app/'],
-      ['GitHub', 'https://github.com/RidhanPar/customer-support-intelligence-platform']
-    ],
-    featured: true
-  },
-  {
-    title: 'AI Ops Workflow Automation Platform',
-    category: 'AI & Automation',
-    eyebrow: 'Featured / Agentic operations',
-    description:
-      'Traceable LangGraph operations agent with RAG, explicit tool orchestration, evaluation, structured traces, and human approval controls.',
-    tech: ['LangGraph', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'OpenTelemetry'],
-    outcome: 'Demonstrates bounded agent orchestration with measurable reliability controls.',
-    links: [
-      ['Live demo', 'https://ridhan-ai-ops-dashboard.onrender.com'],
-      ['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']
     ],
     featured: true
   },
