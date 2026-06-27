@@ -22,7 +22,7 @@ const projects = [
   {
     title: 'HR People Analytics Platform',
     category: 'Data & BI',
-    eyebrow: 'People analytics & automation',
+    eyebrow: 'Featured / People analytics',
     description:
       'End-to-end people analytics platform for HR teams — employee lifecycle tracking (hiring, onboarding, exits), attrition analysis, headcount vs budget variance reporting with 5% threshold flagging, and AI-generated workforce insights via OpenAI API. Replaces manual weekly HR reporting with automated dashboards and one-click Excel exports.',
     tech: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'OpenAI API', 'openpyxl'],
@@ -30,7 +30,8 @@ const projects = [
     links: [
       ['Live demo', 'https://hr-people-analytics-platform.streamlit.app/'],
       ['GitHub', 'https://github.com/RidhanPar/hr-people-analytics-platform']
-    ]
+    ],
+    featured: true
   },
   {
     title: 'AI Ops Workflow Automation Platform',
