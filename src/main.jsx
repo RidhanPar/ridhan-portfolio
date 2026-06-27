@@ -28,6 +28,7 @@ const projects = [
     tech: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'OpenAI API', 'openpyxl'],
     outcome: 'Gives people teams a single source of truth for headcount, attrition, and budget variance.',
     links: [
+      ['Live demo', 'https://hr-people-analytics-platform.streamlit.app/'],
       ['GitHub', 'https://github.com/RidhanPar/hr-people-analytics-platform']
     ]
   },
@@ -499,7 +500,7 @@ function App() {
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
               <div><strong>18</strong><span>Selected project stories</span></div>
-              <div><strong>9</strong><span>Live project demos</span></div>
+              <div><strong>10</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
