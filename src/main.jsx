@@ -20,6 +20,18 @@ import './styles.css';
 
 const projects = [
   {
+    title: 'HR People Analytics Platform',
+    category: 'Data & BI',
+    eyebrow: 'People analytics & automation',
+    description:
+      'End-to-end people analytics platform for HR teams — employee lifecycle tracking (hiring, onboarding, exits), attrition analysis, headcount vs budget variance reporting with 5% threshold flagging, and AI-generated workforce insights via OpenAI API. Replaces manual weekly HR reporting with automated dashboards and one-click Excel exports.',
+    tech: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'OpenAI API', 'openpyxl'],
+    outcome: 'Gives people teams a single source of truth for headcount, attrition, and budget variance.',
+    links: [
+      ['GitHub', 'https://github.com/RidhanPar/hr-people-analytics-platform']
+    ]
+  },
+  {
     title: 'AI Ops Workflow Automation Platform',
     category: 'AI & Automation',
     eyebrow: 'Featured / Agentic operations',
@@ -93,7 +105,7 @@ const projects = [
     category: 'ML & Analytics',
     eyebrow: 'Featured / Support operations',
     description:
-      'SLA monitoring and breach-prediction platform with risk scoring, ticket prioritization, KPI views, and recommended support actions.',
+      'Workforce and service quality analytics platform extracting insights from support interaction data. Surfaces agent performance KPIs, team-level workload trends, and resolution rate metrics to support people team decisions and capacity planning.',
     tech: ['Python', 'scikit-learn', 'Pandas', 'Plotly', 'Streamlit'],
     outcome: 'Helps support teams act before high-risk tickets breach SLA.',
     links: [
@@ -285,6 +297,9 @@ const skills = [
   'Snowflake',
   'dbt',
   'Databricks',
+  'HR Analytics',
+  'People Data',
+  'Employee Lifecycle Automation',
   'Machine Learning',
   'XGBoost',
   'SHAP',
