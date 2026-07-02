@@ -184,6 +184,56 @@ const projects = [
     featured: true
   },
   {
+    title: 'Payment Webhook Processor',
+    category: 'Full-stack',
+    eyebrow: 'Payments backend engineering',
+    description:
+      'FastAPI service that ingests payment lifecycle webhooks with strict validation, race-safe idempotency enforced by a database unique constraint, and a state machine that rejects illegal payment transitions; phase 2 verifies and maps real GoCardless sandbox webhooks.',
+    tech: ['Python', 'FastAPI', 'SQLAlchemy', 'Pydantic', 'pytest', 'GoCardless API'],
+    outcome: 'Processes duplicate and concurrent webhook deliveries exactly once — the failure mode that actually bites payment consumers.',
+    links: [['GitHub', 'https://github.com/RidhanPar/payment-webhook-processor']]
+  },
+  {
+    title: 'Payment Retry A/B Test Readout',
+    category: 'ML & Analytics',
+    eyebrow: 'Experiment analysis',
+    description:
+      'Full experiment readout for a smart payment-retry strategy: two-proportion z-test on recovery rate, power analysis with Cohen’s h, randomization checks, and guardrail metrics for recovery speed and disputes.',
+    tech: ['Python', 'statsmodels', 'Hypothesis Testing', 'Pandas', 'Streamlit'],
+    outcome: 'Turns a 5.1-point recovery-rate lift into a defensible ship/no-ship recommendation.',
+    links: [['GitHub', 'https://github.com/RidhanPar/payment-retry-ab-test']]
+  },
+  {
+    title: 'Merchant CLV Segmentation',
+    category: 'Data & BI',
+    eyebrow: 'Payments portfolio analytics',
+    description:
+      'Segments 3,000 merchants across 575k simulated transactions with RFM scoring, estimates platform-revenue lifetime value per merchant, and ranks where payment failures put the most value at risk.',
+    tech: ['Python', 'Pandas', 'RFM Segmentation', 'CLV Modelling', 'Streamlit'],
+    outcome: 'Points retention and payment-recovery effort at the merchants actually worth saving.',
+    links: [['GitHub', 'https://github.com/RidhanPar/payment-merchant-clv-segmentation']]
+  },
+  {
+    title: 'Databricks Credit Risk Feature Pipeline',
+    category: 'ML & Analytics',
+    eyebrow: 'Lakehouse feature engineering',
+    description:
+      'End-to-end Databricks workflow: Delta Lake ingestion, PySpark window-function feature engineering with MERGE upserts, XGBoost training tracked in MLflow, and automated PSI drift monitoring using Delta time travel.',
+    tech: ['Databricks', 'PySpark', 'Delta Lake', 'MLflow', 'XGBoost', 'SHAP'],
+    outcome: 'Shows production-shaped lakehouse feature engineering with drift monitoring built in.',
+    links: [['GitHub', 'https://github.com/RidhanPar/databricks-credit-risk-features']]
+  },
+  {
+    title: 'Low Stock Reorder Alert',
+    category: 'AI & Automation',
+    eyebrow: 'Power Automate workflow',
+    description:
+      'Event-driven Power Automate cloud flow that watches SharePoint stock intake, flags items at or below their reorder threshold, raises reorder requests, and alerts purchasing in Teams and email — documented as a complete rebuildable specification.',
+    tech: ['Power Automate', 'SharePoint', 'Microsoft Teams', 'Workflow Automation'],
+    outcome: 'Removes the manual watch step that turns missed reorders into stockouts.',
+    links: [['GitHub', 'https://github.com/RidhanPar/power-automate-reorder-alert']]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -500,7 +550,7 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>18</strong><span>Selected project stories</span></div>
+              <div><strong>24</strong><span>Selected project stories</span></div>
               <div><strong>10</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
