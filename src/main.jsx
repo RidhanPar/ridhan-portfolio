@@ -67,6 +67,7 @@ const projects = [
     title: 'Web Security Log Anomaly Detector',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Threat detection',
+    image: '/screenshots/web-security.webp',
     description:
       'Real-time threat detection system that classifies brute force, SQL injection, bot traffic, account takeover, and data exfiltration in Nginx web logs using a three-method ML ensemble — Isolation Forest, Local Outlier Factor, and z-score baseline.',
     tech: ['Python', 'PySpark', 'Isolation Forest', 'Apache Kafka', 'AWS S3', 'AWS Athena', 'AWS Lambda', 'Streamlit'],
@@ -95,6 +96,7 @@ const projects = [
     title: 'DirectDebit IQ',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Payment intelligence',
+    image: '/screenshots/directdebit-iq.webp',
     description:
       'End-to-end direct debit analytics and failure prediction with SQL, XGBoost, MLflow, dbt-style models, testing, and an operational dashboard.',
     tech: ['SQL', 'XGBoost', 'MLflow', 'dbt', 'Streamlit'],
@@ -179,6 +181,7 @@ const projects = [
     title: 'PySpark Anti-Money Laundering Pipeline',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Financial crime detection',
+    image: '/screenshots/pyspark-aml.webp',
     description:
       'Real-time AML transaction monitoring pipeline flagging smurfing, layering, and rapid-velocity transfers across 1M+ records using PySpark, Kafka streaming, dbt, and Delta Lake with a full regulatory audit trail.',
     tech: ['Python', 'PySpark', 'Apache Kafka', 'dbt', 'Delta Lake', 'Streamlit', 'Docker'],
