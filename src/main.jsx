@@ -23,6 +23,7 @@ const projects = [
     title: 'HR People Analytics Platform',
     category: 'Data & BI',
     eyebrow: 'Featured / People analytics',
+    image: '/screenshots/hr-people-analytics.webp',
     description:
       'End-to-end people analytics platform for HR teams — employee lifecycle tracking (hiring, onboarding, exits), attrition analysis, headcount vs budget variance reporting with 5% threshold flagging, and AI-generated workforce insights via OpenAI API. Replaces manual weekly HR reporting with automated dashboards and one-click Excel exports.',
     tech: ['Python', 'Streamlit', 'Plotly', 'Pandas', 'OpenAI API', 'openpyxl'],
@@ -37,6 +38,7 @@ const projects = [
     title: 'AI Ops Workflow Automation Platform',
     category: 'AI & Automation',
     eyebrow: 'Featured / Agentic operations',
+    image: '/screenshots/ai-ops-workflow.webp',
     description:
       'Traceable LangGraph operations agent with RAG, explicit tool orchestration, evaluation, structured traces, and human approval controls.',
     tech: ['LangGraph', 'FastAPI', 'React', 'PostgreSQL', 'pgvector', 'OpenTelemetry'],
@@ -120,6 +122,7 @@ const projects = [
     title: 'Baltic Commerce Intelligence',
     category: 'Data & BI',
     eyebrow: 'Featured / Analytics engineering',
+    image: '/screenshots/baltic-commerce.webp',
     description:
       'Reproducible Baltic commerce analytics case study with Python, SQL, dbt, SQLite, Excel, statistical analysis, tests, and CI.',
     tech: ['Python', 'SQL', 'dbt', 'SQLite', 'Excel', 'Statistics'],
@@ -377,8 +380,20 @@ const skills = [
 ];
 
 function ProjectCard({ project }) {
+  const demoLink = project.links.find(([label]) => label === 'Live demo');
   return (
     <article className={`projectCard ${project.featured ? 'featured' : ''}`}>
+      {project.image && (
+        <a
+          className="projectThumb"
+          href={(demoLink || project.links[0])[1]}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={`Open ${project.title}${demoLink ? ' live demo' : ''}`}
+        >
+          <img src={project.image} alt={`${project.title} interface preview`} loading="lazy" />
+        </a>
+      )}
       <div className="projectTopline">
         <p className="eyebrow">{project.eyebrow}</p>
         {project.featured && <span className="featuredBadge">Featured</span>}
