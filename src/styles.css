@@ -529,6 +529,7 @@ strong {
 .projectGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
   gap: 20px;
 }
 
@@ -654,6 +655,111 @@ strong {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+}
+
+.caseStudy {
+  margin-top: 16px;
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.caseToggle {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: transparent;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  transition: 180ms ease;
+}
+
+.caseToggle:hover {
+  border-color: var(--line-strong);
+  background: var(--surface-muted);
+}
+
+.caseToggle svg {
+  transition: transform 200ms ease;
+}
+
+.caseToggle.open svg {
+  transform: rotate(180deg);
+}
+
+.casePanel {
+  margin-top: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 15px;
+  background: var(--surface-muted);
+  display: grid;
+  gap: 16px;
+  animation: caseIn 220ms ease;
+}
+
+@keyframes caseIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+.caseBlock h4 {
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.caseBlock p {
+  color: var(--muted);
+  font-size: 13.5px;
+  line-height: 1.7;
+}
+
+.caseMetrics {
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+
+.caseMetrics li {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-solid);
+}
+
+.caseMetrics span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.caseMetrics strong {
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 800;
+  text-align: right;
+}
+
+.caseNote {
+  color: var(--muted);
+  font-size: 12px;
+  font-style: italic;
+  line-height: 1.6;
 }
 
 .projectLinks a {

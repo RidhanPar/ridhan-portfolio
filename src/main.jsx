@@ -5,6 +5,7 @@ import {
   BarChart3,
   Bot,
   CheckCircle2,
+  ChevronDown,
   Code2,
   Database,
   Mail,
@@ -47,6 +48,20 @@ const projects = [
       ['Live demo', 'https://ridhan-ai-ops-dashboard.onrender.com'],
       ['GitHub', 'https://github.com/RidhanPar/ai-ops-workflow-automation-platform']
     ],
+    caseStudy: {
+      problem:
+        'Support teams triage tickets by hand, but letting an LLM agent act on customer records autonomously is unsafe — a wrong call silently changes real data with no audit trail and no way to review it.',
+      approach:
+        'A LangGraph agent runs a fixed tool sequence rather than free-form actions: retrieve knowledge, look up customer history, then emit a Pydantic-validated recommendation. Anything customer-impacting stops at a human approval gate instead of executing, and invalid output, provider failure, and unexpected errors each have their own fallback path.',
+      architecture:
+        'React dashboard sends JWT plus a trace ID to a FastAPI service that enforces role-based access, then dispatches to the agent. Retrieval uses a PostgreSQL pgvector HNSW index with a deterministic local-vector fallback so demos cost nothing. An idempotent workflow engine handles routing, with Alembic migrations, Prometheus and Grafana monitoring, and Kubernetes manifests validated in CI.',
+      results: [
+        ['Access control', '4 roles, JWT-scoped'],
+        ['Sensitive actions', 'Human approval gated'],
+        ['Agent evaluation', 'Golden dataset, incl. prompt injection'],
+        ['Per-call telemetry', 'Trace ID, latency, tokens, cost']
+      ]
+    },
     featured: true
   },
   {
@@ -75,6 +90,22 @@ const projects = [
     links: [
       ['GitHub', 'https://github.com/RidhanPar/web-security-log-anomaly-detector']
     ],
+    caseStudy: {
+      problem:
+        'A SOC cannot eyeball 50,000 log lines a day, and any single detector has a blind spot: statistical baselines catch volumetric floods but miss slow behavioural attacks, while density methods do the reverse.',
+      approach:
+        'Engineer 10 behavioural features per IP with PySpark window functions — requests per minute, post-login rate, error rate, unique URLs per hour, response-byte ratio, request-interval variance — then score each event with Isolation Forest, Local Outlier Factor, and a z-score baseline, combining all three into one composite threat score ranked CRITICAL / HIGH / MEDIUM.',
+      architecture:
+        'Batch path: Nginx logs land in PySpark for ingestion and data-quality checks, flow through feature engineering and the three detectors, and export to S3 where Athena makes them SQL-queryable, with a Lambda triaging each new alert file. A parallel real-time path streams logs through Kafka into Spark Structured Streaming on 30-second micro-batches. Both feed a four-tab Streamlit dashboard.',
+      results: [
+        ['Brute force / SQLi / bot', '100% detected'],
+        ['Account takeover & exfiltration', '77.1% detected'],
+        ['Overall attack detection', '90.8%'],
+        ['False-positive rate', '10.2%']
+      ],
+      note:
+        'Measured on the bundled 50,000-row labelled dataset (90% benign, 10% attacks) at contamination = 0.1. The false-positive rate tracks that contamination setting and is the precision/recall lever a SOC would tune.'
+    },
     featured: true
   },
   {
@@ -90,6 +121,22 @@ const projects = [
       ['Live demo', 'https://credit-risk-scorecard-engine.streamlit.app'],
       ['GitHub', 'https://github.com/RidhanPar/credit-risk-scorecard-engine']
     ],
+    caseStudy: {
+      problem:
+        'A consumer lender has to explain every decline to the applicant and justify it to a regulator. Under GDPR Article 22 and ECOA that rules out a black-box score — the decision has to decompose into auditable points.',
+      approach:
+        'Build the scorecard the way lenders actually do: Weight of Evidence encoding via optbinning to linearise each feature, logistic regression scaled to a 300–850 score with PDO methodology, and XGBoost trained alongside as a benchmark. SHAP and LIME explain individual decisions, and Population Stability Index monitors score drift to signal retraining.',
+      architecture:
+        'The UCI German Credit data loads into a SQLite feature store where CTEs and window functions derive the features, including engineered ones like age relative to loan duration. Those feed WoE binning, then both models, then a Gini / KS / ROC evaluation and a PSI monitor. A five-tab Streamlit app serves live scoring, and Docker Compose brings the whole thing up in one command.',
+      results: [
+        ['Logistic scorecard ROC-AUC', '0.818'],
+        ['Gini / KS statistic', '0.636 / 0.562'],
+        ['XGBoost benchmark ROC-AUC', '0.799'],
+        ['Top feature IV (checking_status)', '0.6168']
+      ],
+      note:
+        'The interpretable scorecard beat XGBoost here: WoE encoding pre-linearises the features, so there is little non-linear structure left for a tree to find. Trained on the public UCI German Credit dataset.'
+    },
     featured: true
   },
   {
@@ -105,6 +152,22 @@ const projects = [
       ['Live demo', 'https://directdebit-iq.streamlit.app/'],
       ['GitHub', 'https://github.com/RidhanPar/directdebit-iq']
     ],
+    caseStudy: {
+      problem:
+        'Retrying a failed direct debit touches a real customer’s bank account. Automating that end to end is a governance problem as much as a modelling one: an unreviewed or duplicated retry is worse than a missed recovery.',
+      approach:
+        'Score every scheduled payment for failure risk, explain the drivers, and recommend a retry above threshold — but treat the recommendation as a request, not an action. Customer-impacting retries require a reviewer with the right role, carry an idempotency key so a repeated call cannot double-charge, and write an audit record either way.',
+      architecture:
+        'Each payment flows through risk scoring into a prediction audit that pins the model version, threshold, and trace ID. Above threshold it becomes a retry recommendation held at a human approval gate; approved actions execute idempotently and persist their outcome. An n8n workflow drives the same authenticated endpoints the tests and API docs use, so it cannot bypass the gate.',
+      results: [
+        ['Dataset', '50,000 payments'],
+        ['ROC-AUC', '~0.690'],
+        ['Recall at 0.30 threshold', '~94.5%'],
+        ['Governance controls passing', '7 / 7']
+      ],
+      note:
+        'Metrics come from an out-of-time synthetic holdout. The repository is explicit that the dataset and any benefit figures are scenario estimates — this demonstrates engineering and governance controls, not validated production performance.'
+    },
     featured: true
   },
   {
@@ -386,7 +449,10 @@ const skills = [
 ];
 
 function ProjectCard({ project }) {
+  const [caseOpen, setCaseOpen] = useState(false);
   const demoLink = project.links.find(([label]) => label === 'Live demo');
+  const study = project.caseStudy;
+  const panelId = `case-${project.title.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   return (
     <article className={`projectCard ${project.featured ? 'featured' : ''}`}>
       {project.image && (
@@ -423,6 +489,48 @@ function ProjectCard({ project }) {
           </a>
         ))}
       </div>
+      {study && (
+        <div className="caseStudy">
+          <button
+            type="button"
+            className={caseOpen ? 'caseToggle open' : 'caseToggle'}
+            aria-expanded={caseOpen}
+            aria-controls={panelId}
+            onClick={() => setCaseOpen(!caseOpen)}
+          >
+            {caseOpen ? 'Hide case study' : 'Read the case study'}
+            <ChevronDown size={16} aria-hidden="true" />
+          </button>
+          {caseOpen && (
+            <div className="casePanel" id={panelId}>
+              <div className="caseBlock">
+                <h4>Problem</h4>
+                <p>{study.problem}</p>
+              </div>
+              <div className="caseBlock">
+                <h4>Approach</h4>
+                <p>{study.approach}</p>
+              </div>
+              <div className="caseBlock">
+                <h4>Architecture</h4>
+                <p>{study.architecture}</p>
+              </div>
+              <div className="caseBlock">
+                <h4>Results</h4>
+                <ul className="caseMetrics">
+                  {study.results.map(([label, value]) => (
+                    <li key={label}>
+                      <span>{label}</span>
+                      <strong>{value}</strong>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              {study.note && <p className="caseNote">{study.note}</p>}
+            </div>
+          )}
+        </div>
+      )}
     </article>
   );
 }
