@@ -80,6 +80,7 @@ const projects = [
     title: 'Credit Risk Scorecard Engine',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Explainable credit risk',
+    image: '/screenshots/credit-risk-scorecard.webp',
     description:
       'End-to-end credit fraud and default prediction system that approves or declines loan applications and generates a plain-English SHAP and LIME explanation of every decision; built in both Python and R for dual validation.',
     tech: ['Python', 'XGBoost', 'SHAP', 'LIME', 'R', 'MLflow', 'Streamlit', 'optbinning'],
@@ -108,6 +109,7 @@ const projects = [
     title: 'Customer Support Intelligence Platform',
     category: 'ML & Analytics',
     eyebrow: 'Featured / Support operations',
+    image: '/screenshots/customer-support-intelligence.webp',
     description:
       'Workforce and service quality analytics platform extracting insights from support interaction data. Surfaces agent performance KPIs, team-level workload trends, and resolution rate metrics to support people team decisions and capacity planning.',
     tech: ['Python', 'scikit-learn', 'Pandas', 'Plotly', 'Streamlit'],
@@ -137,6 +139,7 @@ const projects = [
     title: 'AI Automation Command Center',
     category: 'AI & Automation',
     eyebrow: 'Featured / Operations strategy',
+    image: '/screenshots/ai-automation-command-center.webp',
     description:
       'Decision-support dashboard for scoring, prioritizing, and tracking AI and workflow automation opportunities across business teams.',
     tech: ['Python', 'Streamlit', 'Pandas', 'Plotly', 'Workflow Automation'],
