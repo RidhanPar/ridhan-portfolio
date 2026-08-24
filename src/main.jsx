@@ -306,6 +306,46 @@ const projects = [
     links: [['GitHub', 'https://github.com/RidhanPar/power-automate-reorder-alert']]
   },
   {
+    title: 'Internal Knowledge Assistant',
+    category: 'AI & Automation',
+    eyebrow: 'Agentic RAG',
+    description:
+      'Agentic retrieval service that answers questions over internal documents with grounded, cited answers, and refuses when the documents do not support a response. A LangGraph agent decides when to retrieve, chooses between a document search tool and a structured directory lookup, and generates with Claude on AWS Bedrock over a pgvector store.',
+    tech: ['FastAPI', 'LangGraph', 'PostgreSQL', 'pgvector', 'AWS Bedrock', 'Claude'],
+    outcome: 'Treats model output as something to check: retrieval metrics plus a faithfulness judge that flags ungrounded answers.',
+    links: [['GitHub', 'https://github.com/RidhanPar/internal-knowledge-assistant']]
+  },
+  {
+    title: 'AWS Iceberg Lakehouse',
+    category: 'Data & BI',
+    eyebrow: 'Lakehouse on AWS',
+    description:
+      'A working payments data lakehouse on real AWS infrastructure. Parquet lands in S3, is registered as Apache Iceberg tables in the Glue Data Catalog, queried with Athena, and transformed with dbt into tested staging and mart models. Schema evolution, time travel, and partition evolution are each run on the live tables.',
+    tech: ['AWS S3', 'Apache Iceberg', 'AWS Glue', 'Amazon Athena', 'dbt', 'PyIceberg'],
+    outcome: 'Lakehouse fundamentals on real infrastructure, with 25 passing dbt tests, measured partition pruning, and a full teardown.',
+    links: [['GitHub', 'https://github.com/RidhanPar/aws-iceberg-lakehouse']]
+  },
+  {
+    title: 'Live Payments Analytics on ClickHouse',
+    category: 'Data & BI',
+    eyebrow: 'Streaming analytics',
+    description:
+      'A running analytics stack, not a static demo: a producer streams 25 to 40 payment events per second into ClickHouse, materialized views maintain per-minute and per-merchant aggregates as data arrives, an anomaly detector flags merchants whose failure rate breaks from their baseline, and Superset serves auto-refreshing dashboards. Runs on Docker Compose, built across 12 reviewed pull requests.',
+    tech: ['ClickHouse', 'Apache Superset', 'Docker Compose', 'Materialized Views', 'Python'],
+    outcome: 'Streaming aggregation, TTL retention, and anomaly detection handled as properties of the tables rather than extra systems.',
+    links: [['GitHub', 'https://github.com/RidhanPar/clickhouse-payments-analytics']]
+  },
+  {
+    title: 'PHP eCommerce Store',
+    category: 'Full-stack',
+    eyebrow: 'Plain PHP MVC',
+    description:
+      'A small eCommerce storefront in plain PHP with no framework, hand-writing the router, front controller, and autoloader so the mechanics stay visible. Includes cart and checkout that saves an order, stock decremented inside the order transaction with row locking, CSRF protection on state-changing forms, and tests run in CI.',
+    tech: ['PHP 8.2', 'MySQL', 'PDO', 'Apache', 'Docker', 'CI'],
+    outcome: 'PHP fundamentals done properly: MVC structure, OOP models, and PDO prepared statements without a framework.',
+    links: [['GitHub', 'https://github.com/RidhanPar/php-ecommerce-store']]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -679,8 +719,8 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>24</strong><span>Selected project stories</span></div>
-              <div><strong>10</strong><span>Live project demos</span></div>
+              <div><strong>28</strong><span>Selected project stories</span></div>
+              <div><strong>11</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
