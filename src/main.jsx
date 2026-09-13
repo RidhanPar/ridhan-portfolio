@@ -310,9 +310,9 @@ const projects = [
     category: 'AI & Automation',
     eyebrow: 'Agentic RAG',
     description:
-      'Agentic retrieval service that answers questions over internal documents with grounded, cited answers, and refuses when the documents do not support a response. A LangGraph agent decides when to retrieve, chooses between a document search tool and a structured directory lookup, and generates with Claude on AWS Bedrock over a pgvector store.',
-    tech: ['FastAPI', 'LangGraph', 'PostgreSQL', 'pgvector', 'AWS Bedrock', 'Claude'],
-    outcome: 'Treats model output as something to check: retrieval metrics plus a faithfulness judge that flags ungrounded answers.',
+      'Agentic retrieval service that answers questions over internal documents with grounded, cited answers, and refuses when the documents do not support a response. A LangGraph agent decides when to retrieve, chooses between document search and a structured directory lookup, generates with Claude via the Anthropic API, and searches local embeddings in pgvector. Deployed on AWS EC2 with Terraform.',
+    tech: ['FastAPI', 'LangGraph', 'Claude (Anthropic)', 'pgvector', 'sentence-transformers', 'Terraform', 'Docker'],
+    outcome: 'Ships with an evaluation suite that scores retrieval quality and answer faithfulness on a labeled question set and flags ungrounded answers.',
     links: [['GitHub', 'https://github.com/RidhanPar/internal-knowledge-assistant']]
   },
   {
