@@ -346,6 +346,16 @@ const projects = [
     links: [['GitHub', 'https://github.com/RidhanPar/php-ecommerce-store']]
   },
   {
+    title: 'Airline Crew Rostering Optimisation',
+    category: 'ML & Analytics',
+    eyebrow: 'Operations research',
+    description:
+      'Mixed-Integer Program that assigns 136 pilots to 740 monthly duty periods under rest rules, daily, weekly and monthly duty caps, type ratings, licence expiry, crew bases and leave, trading pay cost against fairness. Wrapped in a SQL data layer that quarantines bad input, infeasibility diagnostics that name the conflicting rule, an independent roster checker, and 11 what-if scenarios exported to Power BI.',
+    tech: ['Python', 'PuLP', 'CBC', 'SQL', 'SQLite', 'pandas', 'Power BI', 'pytest'],
+    outcome: 'Full month rostered with every seat covered in 9.7 seconds, proven within 0.28% of optimal, with zero violations from the independent checker.',
+    links: [['GitHub', 'https://github.com/RidhanPar/crew-rostering-optimisation']]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -719,8 +729,8 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>28</strong><span>Selected project stories</span></div>
-              <div><strong>11</strong><span>Live project demos</span></div>
+              <div><strong>29</strong><span>Selected project stories</span></div>
+              <div><strong>10</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
