@@ -356,6 +356,16 @@ const projects = [
     links: [['GitHub', 'https://github.com/RidhanPar/crew-rostering-optimisation']]
   },
   {
+    title: 'Fraud Detection MLOps Platform',
+    category: 'ML & Analytics',
+    eyebrow: 'MLOps / Production lifecycle',
+    description:
+      'The full lifecycle around an XGBoost fraud model: MLflow registry with a promotion gate on PR AUC, a validated FastAPI service, Prometheus and Grafana monitoring with calibrated drift detection, a tamper evident audit trail with exact SHAP explanations, and a retraining policy that tells data faults from concept drift. Deployed to AWS with Terraform (ECS Fargate, ALB, RDS, S3 Object Lock, CloudWatch), measured, then destroyed.',
+    tech: ['Python', 'XGBoost', 'MLflow', 'FastAPI', 'Prometheus', 'Grafana', 'Postgres', 'Terraform', 'AWS', 'Docker'],
+    outcome: 'PR AUC 0.776 on a time ordered holdout; a simulated upstream outage was caught by a stuck value alarm in 56 s on AWS while prediction drift never fired; zero downtime rolling deploy across 19,076 requests.',
+    links: [['GitHub', 'https://github.com/RidhanPar/fraud-mlops-platform']]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -729,7 +739,7 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>29</strong><span>Selected project stories</span></div>
+              <div><strong>30</strong><span>Selected project stories</span></div>
               <div><strong>10</strong><span>Live project demos</span></div>
               <div><strong>4+</strong><span>Years building data and AI systems</span></div>
             </div>
