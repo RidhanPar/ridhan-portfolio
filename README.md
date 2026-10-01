@@ -1,6 +1,6 @@
 # Ridhan Parvendhan Portfolio
 
-Evidence-first portfolio for data analytics, machine learning, AI-agent orchestration, and workflow automation projects.
+Evidence first portfolio of an AI engineer working on LLM agents, RAG pipelines, API integrations, and production Python services.
 
 Live site: https://ridhan-portfolio.vercel.app/
 

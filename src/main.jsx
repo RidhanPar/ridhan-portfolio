@@ -362,7 +362,7 @@ const projects = [
     description:
       'The full lifecycle around an XGBoost fraud model: MLflow registry with a promotion gate on PR AUC, a validated FastAPI service, Prometheus and Grafana monitoring with calibrated drift detection, a tamper evident audit trail with exact SHAP explanations, and a retraining policy that tells data faults from concept drift. Deployed to AWS with Terraform (ECS Fargate, ALB, RDS, S3 Object Lock, CloudWatch), measured, then destroyed.',
     tech: ['Python', 'XGBoost', 'MLflow', 'FastAPI', 'Prometheus', 'Grafana', 'Postgres', 'Terraform', 'AWS', 'Docker'],
-    outcome: 'PR AUC 0.776 on a time ordered holdout; a simulated upstream outage was caught by a stuck value alarm in 56 s on AWS while prediction drift never fired; zero downtime rolling deploy across 19,076 requests.',
+    outcome: 'ROC AUC 0.963 and PR AUC 0.776 on a time ordered holdout. A simulated upstream outage was caught by a stuck value alarm in 56 s on AWS while prediction drift never fired. Zero downtime rolling deploy across 19,076 requests.',
     links: [['GitHub', 'https://github.com/RidhanPar/fraud-mlops-platform']]
   },
   {
@@ -496,8 +496,8 @@ const skills = [
   'OpenTelemetry',
   'AI Agents',
   'GitHub Actions',
-  'PySpark',
-  'Apache Kafka',
+  'PySpark (project level)',
+  'Apache Kafka (project level)',
   'Isolation Forest',
   'Delta Lake',
   'MLflow',
@@ -718,15 +718,14 @@ function App() {
               <span />
               Open to AI Automation Engineer, Data Analyst, and Data Scientist opportunities in Riga and remote
             </div>
-            <p className="kicker">Data Analyst / AI Automation Engineer / Analytics Builder</p>
+            <p className="kicker">AI Engineer · LLM Agents, RAG and API Integrations</p>
             <h1>
               I turn data, AI agents, and automation into <span>business outcomes.</span>
             </h1>
             <p className="heroIntro">
-              I am Ridhan Parvendhan, a Data Analyst and AI Automation Engineer based in Riga with
-              3+ years of experience building LLM-powered automation workflows, real-time data
-              pipelines, and BI reporting systems — with independent DS projects in fraud detection,
-              AML monitoring, and security threat detection.
+              I am Ridhan Parvendhan, an AI engineer based in Riga with 3+ years of building
+              software in Python, including 2.5 years applying LLMs to real business workflows at a
+              food services company supplying hospitals, where I lead the data and AI team of five.
             </p>
             <div className="buttons">
               <a className="primaryButton" href="#projects">
@@ -741,7 +740,7 @@ function App() {
             <div className="heroProof" aria-label="Portfolio highlights">
               <div><strong>30</strong><span>Selected project stories</span></div>
               <div><strong>10</strong><span>Live project demos</span></div>
-              <div><strong>4+</strong><span>Years building data and AI systems</span></div>
+              <div><strong>3+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
 
@@ -830,49 +829,54 @@ function App() {
               <h2>Technical depth grounded in business operations.</h2>
             </div>
             <p>
-              My work sits where reporting, support operations, systems thinking, and process
-              improvement meet.
+              My work sits where applied AI, software engineering, and business operations meet,
+              building systems that teams actually run.
             </p>
           </div>
           <div className="timeline">
             <article>
               <p className="timelineDate">Apr 2024 – Present</p>
               <div>
-                <h3>AI Automation Engineer</h3>
-                <p className="company">ALIEF MAJU ENTERPRISE / Malaysia (Remote)</p>
-                <p>Built 9 n8n automation pipelines, integrated OpenAI and Anthropic LLM APIs for document processing and reporting, built RAG pipelines with vector databases, automated SQL validation frameworks; reduced team manual reporting effort by 40+ hours per week.</p>
+                <h3>AI Engineer, Data and AI Team Lead</h3>
+                <p className="company">Alief Maju Enterprise · Food services supplier to hospitals · Remote</p>
+                <ul className="timelineBullets">
+                  <li>Lead the data and AI team of five: two data analysts, a data engineer, a junior AI engineer and an AI intern.</li>
+                  <li>Integrated OpenAI and Anthropic LLMs into live business workflows with prompt engineering, cutting manual processing time by 50%.</li>
+                  <li>Built and deployed Python and FastAPI services on AWS with Docker, ECR and CI/CD, running at 99.9% uptime with OAuth 2.0 secured access.</li>
+                  <li>Worked with business and IT stakeholders to turn requirements into deployed solutions, and explained trade offs to non technical audiences.</li>
+                  <li>Built validation checks with fault injection testing that cut data discrepancies between systems from 12% to under 2%.</li>
+                </ul>
               </div>
             </article>
             <article>
               <p className="timelineDate">Jan 2023 – Apr 2024</p>
               <div>
                 <h3>Data Analyst</h3>
-                <p className="company">ALIEF MAJU ENTERPRISE / Malaysia (Remote)</p>
-                <p>Analysed procurement and logistics data using SQL, Python, and Excel; built Tableau, Power BI, and Looker dashboards monitoring 200+ supplier KPIs; delivered weekly management reports in Google Sheets.</p>
+                <p className="company">Alief Maju Enterprise · Food services supplier to hospitals · Remote</p>
+                <ul className="timelineBullets">
+                  <li>Built data pipelines and analytics in SQL and Python, and an early OpenAI powered assistant that reduced support escalations.</li>
+                </ul>
               </div>
             </article>
             <article>
-              <p className="timelineDate">Jun 2025 - May 2026</p>
+              <p className="timelineDate">Nov 2024 – Jun 2026</p>
               <div>
-                <h3>Senior Product Specialist</h3>
-                <p className="company">TELUS Digital / Riga, Latvia</p>
-                <p>Resolved advanced advertising issues, analyzed case and backend patterns, and contributed operational insight for process improvement.</p>
+                <h3>Customer Care Representative, Senior</h3>
+                <p className="company">TELUS Digital · Riga, Latvia</p>
+                <ul className="timelineBullets">
+                  <li>Supported customers of a global advertising platform with CSAT consistently above 90%, through to the Latvia office closure.</li>
+                  <li>Automated the team&apos;s shift swap approvals in Google Sheets, recognised with the Above and Beyond award in Q2 and Q4 2025.</li>
+                </ul>
               </div>
             </article>
             <article>
-              <p className="timelineDate">Nov 2024 - Jun 2025</p>
-              <div>
-                <h3>Product Specialist</h3>
-                <p className="company">TELUS Digital / Riga, Latvia</p>
-                <p>Supported business users across advertising, billing, policy, and platform issues while collaborating with technical and product teams.</p>
-              </div>
-            </article>
-            <article>
-              <p className="timelineDate">Sep 2023 - Dec 2023</p>
+              <p className="timelineDate">Sep 2023 – Dec 2023</p>
               <div>
                 <h3>Technical Specialist Intern</h3>
-                <p className="company">Demola Global / Riga, Latvia</p>
-                <p>Built a chatbot and website concept to improve university information access for mature-age students.</p>
+                <p className="company">Demola Global · Riga, Latvia</p>
+                <ul className="timelineBullets">
+                  <li>Built a chatbot and website concept to improve university information access for mature age students.</li>
+                </ul>
               </div>
             </article>
           </div>
@@ -891,15 +895,21 @@ function App() {
           </div>
           <div className="educationGrid">
             <a href="https://rnu.lv/en/" target="_blank" rel="noreferrer">
-              <span>Master of Science</span>
-              <strong>Computer Science</strong>
-              <p>Riga Nordic University / 120 ECTS</p>
+              <span>Master of Business Administration</span>
+              <strong>Riga Nordic University</strong>
+              <p>Sep 2026 – Present · 120 ECTS · Currently enrolled</p>
+              <ArrowUpRight size={18} />
+            </a>
+            <a href="https://rnu.lv/en/" target="_blank" rel="noreferrer">
+              <span>Master of Engineering Science</span>
+              <strong>Computer Science and Informatics</strong>
+              <p>Riga Nordic University · May 2024 – Jun 2026 · 120 ECTS</p>
               <ArrowUpRight size={18} />
             </a>
             <a href="https://www.rtu.lv/" target="_blank" rel="noreferrer">
               <span>Bachelor of Engineering Science</span>
-              <strong>Computer Science and Control</strong>
-              <p>Riga Technical University / 180 ECTS</p>
+              <strong>Computer System</strong>
+              <p>Riga Technical University · Jan 2021 – Jan 2024 · 180 ECTS</p>
               <ArrowUpRight size={18} />
             </a>
             <a href="https://coursera.org/share/5fc528ef7a85c5043b393dc742731088" target="_blank" rel="noreferrer">
@@ -915,6 +925,10 @@ function App() {
               <ArrowUpRight size={18} />
             </a>
           </div>
+          <p className="languages">
+            <strong>Languages</strong>
+            English: C2 (certified) · Latvian: B1 (actively studying)
+          </p>
           <div className="skillGrid" aria-label="Technical skills">
             {skills.map((skill) => <span key={skill}>{skill}</span>)}
           </div>
