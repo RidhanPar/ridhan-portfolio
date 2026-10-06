@@ -366,6 +366,26 @@ const projects = [
     links: [['GitHub', 'https://github.com/RidhanPar/fraud-mlops-platform']]
   },
   {
+    title: 'Legacy Excel to Microsoft Fabric Migration',
+    category: 'Data & BI',
+    eyebrow: 'Migration / Reconciliation',
+    description:
+      'Monthly board portfolio pack for a three country consumer lender, moved off a formula driven Excel workbook onto a medallion lakehouse (bronze, silver, gold Delta tables) with a Direct Lake semantic model version controlled as TMDL text. 96 declarative data quality checks sit behind a write, audit, publish gate, so gold only replaces the previously published data when every error level check passes. Then every one of the 672 published figures is reconciled against the old workbook, month by month and country by country, with each difference walked to a named cause. Built and tested on the same Spark 3.5 and Delta 3.2 versions Fabric Runtime 1.3 uses; the Fabric items are authored as code.',
+    tech: ['Microsoft Fabric', 'PySpark', 'Delta Lake', 'Power BI', 'Direct Lake', 'TMDL', 'Python', 'pytest', 'Docker'],
+    outcome: 'Proved the legacy pack overstated the portfolio balance in every one of 24 months, by 7.32% on average, and understated 30+ day arrears by 0.21 percentage points. 672 figures reconciled with 0 left unexplained, and the same method caught a rate truncation bug in the new model.',
+    links: [['GitHub', 'https://github.com/RidhanPar/fabric-credit-reporting-migration']]
+  },
+  {
+    title: 'API and Data Product Discovery over MCP',
+    category: 'AI & Automation',
+    eyebrow: 'MCP / Governed AI platform',
+    description:
+      'Governed discovery layer over the APIs and data products of a fictional Nordic insurer: 25 OpenAPI 3.1 specs (69 operations) and 15 data contracts, seeded with deliberate mess including deprecated versions, look-alike APIs and a prompt injection attempt in a description. Hybrid BM25 and vector search fused with reciprocal rank fusion, deprecated assets demoted, exposed through an MCP server with 8 tools, OAuth 2.1 bearer tokens, per tool scopes, rate limits and an append only audit trail. Two n8n workflows handle access approval and API registration with a human in the loop, and Terraform deploys it to Azure Container Apps.',
+    tech: ['Python', 'FastAPI', 'MCP', 'PostgreSQL', 'pgvector', 'Keycloak', 'n8n', 'Terraform', 'Azure', 'Docker'],
+    outcome: 'The shipped retrieval configuration reaches recall@1 0.825 and MRR@10 0.883 on 40 labelled questions at 36 ms p50, with a deprecated look-alike outranking the right answer in only 1 of 9 trap cases.',
+    links: [['GitHub', 'https://github.com/RidhanPar/api-data-discovery-mcp']]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -738,7 +758,7 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>30</strong><span>Selected project stories</span></div>
+              <div><strong>32</strong><span>Selected project stories</span></div>
               <div><strong>10</strong><span>Live project demos</span></div>
               <div><strong>3+</strong><span>Years building data and AI systems</span></div>
             </div>
