@@ -386,6 +386,19 @@ const projects = [
     links: [['GitHub', 'https://github.com/RidhanPar/api-data-discovery-mcp']]
   },
   {
+    title: 'DevEx Golden Path',
+    category: 'AI & Automation',
+    eyebrow: 'Developer Experience / Platform',
+    description:
+      'A golden path for a small engineering organisation: one Copier command creates a FastAPI service with pytest, ruff, strict mypy, pre-commit, Docker, a devcontainer, identical Makefile and PowerShell commands for Linux and Windows, and Claude Code guardrails (secrets unreadable, lint hook after every edit) plus an AI usage policy. Every service calls one versioned set of reusable GitHub Actions workflows with Semgrep, Trivy, dependency review and gitleaks gates, a container smoke test, and an OIDC deploy with no stored cloud keys. A Python tool computes DORA metrics from the GitHub API and publishes a dashboard to GitHub Pages.',
+    tech: ['GitHub Actions', 'Copier', 'Python', 'FastAPI', 'Docker', 'Semgrep', 'Trivy', 'gitleaks', 'OIDC', 'Claude Code'],
+    outcome: 'Five deliberately broken pull requests (leaked secret, vulnerable dependency, shell injection, failing test, type error) were each blocked by the expected gate, while a control PR passed. Measuring CI found the slowest job was spending 19 of 22 seconds pulling an image; fixing it cut cached CI wall-clock from 61 s to 50 s.',
+    links: [
+      ['Live demo', 'https://ridhanpar.github.io/devex-golden-path/'],
+      ['GitHub', 'https://github.com/RidhanPar/devex-golden-path']
+    ]
+  },
+  {
     title: 'Data Analysis Projects',
     category: 'Data & BI',
     eyebrow: 'Analytics portfolio',
@@ -758,8 +771,8 @@ function App() {
               </a>
             </div>
             <div className="heroProof" aria-label="Portfolio highlights">
-              <div><strong>32</strong><span>Selected project stories</span></div>
-              <div><strong>10</strong><span>Live project demos</span></div>
+              <div><strong>33</strong><span>Selected project stories</span></div>
+              <div><strong>11</strong><span>Live project demos</span></div>
               <div><strong>3+</strong><span>Years building data and AI systems</span></div>
             </div>
           </div>
