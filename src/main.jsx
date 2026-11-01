@@ -758,7 +758,7 @@ function App() {
             <p className="heroIntro">
               I am Ridhan Parvendhan, an AI engineer based in Riga with 3+ years of building
               software in Python, including 2.5 years applying LLMs to real business workflows at a
-              food services company supplying hospitals, where I lead the data and AI team of five.
+              food services company supplying hospitals, where I led the data and AI team of five.
             </p>
             <div className="buttons">
               <a className="primaryButton" href="#projects">
@@ -868,12 +868,12 @@ function App() {
           </div>
           <div className="timeline">
             <article>
-              <p className="timelineDate">Apr 2024 – Present</p>
+              <p className="timelineDate">Apr 2024 – Oct 2026</p>
               <div>
                 <h3>AI Engineer, Data and AI Team Lead</h3>
                 <p className="company">Alief Maju Enterprise · Food services supplier to hospitals · Remote</p>
                 <ul className="timelineBullets">
-                  <li>Lead the data and AI team of five: two data analysts, a data engineer, a junior AI engineer and an AI intern.</li>
+                  <li>Led the data and AI team of five: two data analysts, a data engineer, a junior AI engineer and an AI intern.</li>
                   <li>Integrated OpenAI and Anthropic LLMs into live business workflows with prompt engineering, cutting manual processing time by 50%.</li>
                   <li>Built and deployed Python and FastAPI services on AWS with Docker, ECR and CI/CD, running at 99.9% uptime with OAuth 2.0 secured access.</li>
                   <li>Worked with business and IT stakeholders to turn requirements into deployed solutions, and explained trade offs to non technical audiences.</li>
