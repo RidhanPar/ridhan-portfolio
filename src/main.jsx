@@ -749,7 +749,7 @@ function App() {
           <div className="heroText">
             <div className="availability">
               <span />
-              Open to AI Automation Engineer, Data Analyst, and Data Scientist opportunities in Riga and remote
+              Open to AI Engineer opportunities in Riga and remote
             </div>
             <p className="kicker">AI Engineer · LLM Agents, RAG and API Integrations</p>
             <h1>
